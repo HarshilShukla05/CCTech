@@ -46,8 +46,6 @@ void plotWithGnuplot() {
     fprintf(gnuplotPipe, "set zlabel 'Z-axis'\n");
     fprintf(gnuplotPipe, "set grid\n");
     fprintf(gnuplotPipe, "splot 'points3d.dat' with linespoints linestyle 1 lw 2 lc rgb 'red' title '3D Line'\n");
-
-    // Close Gnuplot pipe
     pclose(gnuplotPipe);
 }
 
