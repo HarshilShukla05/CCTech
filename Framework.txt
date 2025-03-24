@@ -1,0 +1,18 @@
+PROJECT
+│── application/
+│   ├── obj/
+│   ├── src/
+│   │   ├── main.cpp
+│   ├── Makefile  # Builds main → bin/main
+│
+│── geometry/
+│   ├── include/
+│   │   ├── mylib.h
+│   ├── obj/
+│   ├── src/
+│   │   ├── mylib.cpp
+│   ├── Makefile  # Builds libmylib.so → bin/libmylib.so
+│
+│── bin/  # Stores final executables
+│   ├── main          # Final executable
+│   ├── libmylib.so   # Shared library
