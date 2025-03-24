@@ -54,38 +54,37 @@ void Cuboid::writeCuboidData(ofstream &dataFile) {
         {x, y + breadth, z + height}  
     };
 
-    // 
+    
     int bottomFace[5] = {0, 1, 2, 3,0};  
     int topFace[5] = {4, 5, 6, 7,4};     
 
-    
     for (int i = 0; i < 4; ++i) {
         dataFile << v[bottomFace[i]][0] << " "
                  << v[bottomFace[i]][1] << " "
                  << v[bottomFace[i]][2] << endl;
     }
-    // Close face loop
+   
     dataFile << v[bottomFace[0]][0] << " "
              << v[bottomFace[0]][1] << " "
              << v[bottomFace[0]][2] << endl;
     
     dataFile << endl;  // Blank line to separate faces
 
-    // Write top face
+    //  top face
     for (int i = 0; i < 4; ++i) {
         dataFile << v[topFace[i]][0] << " "
                  << v[topFace[i]][1] << " "
                  << v[topFace[i]][2] << endl;
     }
     dataFile << endl;
-    // Close face loop
+   
     dataFile << v[topFace[0]][0] << " "
              << v[topFace[0]][1] << " "
              << v[topFace[0]][2] << endl;
     
     dataFile << endl;  // Blank line to separate faces
 
-    // Write vertical edges (connecting bottom and top face)
+    //Write vertical edges (connecting bottom and top face)
     // for (int i = 0; i < 4; ++i) {
     //     dataFile << v[bottomFace[i]][0] << " "
     //              << v[bottomFace[i]][1] << " "
