@@ -20,9 +20,9 @@ public:
 
     void translate(double dx, double dy, double dz)override;
     void scale(double sx, double sy, double sz)override;
-    void scale(double factor) override; // Added single-factor scaling
-    void rotate(double angle, char axis) override; // Added to match Shape interface
-    void rotate(double angle, char axis, double Px, double Py, double Pz); // Existing method
+    void scale(double factor) override; 
+    void rotate(double angle, char axis) override; 
+    void rotate(double angle, char axis, double Px, double Py, double Pz);
     void plot(const std::string &filename) const override;
     void saveToFile(const string &filename) const override;
     void loadFromFile(const string &filename) override;
