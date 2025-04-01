@@ -17,12 +17,12 @@ public:
     
     void translate(double dx, double dy, double dz)override; //Using matices
     void scale(double sx, double sy, double sz)override;
-    void scale(double factor) override; // Single-factor scaling
+    void scale(double factor) override; 
     void rotate(double angle, char axis) override;
 
     void plot(const std::string &filename) const override;
 
-    vector<vector<double>> calculateBezierCurve(int numSegments) const; // Marked as const
+    vector<vector<double>> calculateBezierCurve(int numSegments) const; 
 
     void saveToFile(const string &filename) const override;
     void loadFromFile(const string &filename) override;

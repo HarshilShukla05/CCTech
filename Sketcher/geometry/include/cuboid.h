@@ -15,7 +15,7 @@ public:
     
     void translate(double dx, double dy, double dz)override;
     void scale(double sx, double sy, double sz)override;
-    void scale(double factor) override; // Single-factor scaling
+    void scale(double factor) override; 
     void rotate(double angle, char axis) override;
 
     void saveToFile(const string &filename) const; 
