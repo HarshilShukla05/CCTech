@@ -100,6 +100,101 @@ shared_ptr<Shape> createShape(int choice) {
     }
 }
 
+void transformShape(shared_ptr<Shape> shape) {
+    char transformChoice;
+    cout << "Do you want to transform the shape? (y/n): ";
+    cin >> transformChoice;
+
+    if (transformChoice == 'y' || transformChoice == 'Y') {
+        int transformOption;
+        cout << "Choose a transformation:\n";
+        cout << "1. Translate\n2. Rotate\n3. Scale\n";
+        cout << "Enter your choice: ";
+        cin >> transformOption;
+
+        if (transformOption == 1) {
+            double dx, dy, dz;
+            cout << "Enter translation values (dx, dy, dz): ";
+            cin >> dx >> dy >> dz;
+            shape->translate(dx, dy, dz);
+        } else if (transformOption == 2) {
+            double angle;
+            char axis;
+            cout << "Enter rotation angle and axis (x, y, or z): ";
+            cin >> angle >> axis;
+            shape->rotate(angle, axis);
+        } else if (transformOption == 3) {
+            double factor;
+            cout << "Enter scaling factor: ";
+            cin >> factor;
+            shape->scale(factor);
+        } else {
+            cout << "Invalid transformation option!\n";
+        }
+    }
+}
+
+void transformHumanoidPart(Structure& humanoid) {
+    int partIndex;
+    cout << "Enter the part index to transform (1 to " << humanoid.getShapeCount() << "): ";
+    cin >> partIndex;
+
+    if (partIndex < 1 || partIndex > static_cast<int>(humanoid.getShapeCount())) {
+        cout << "Invalid part index!\n";
+        return;
+    }
+
+    auto part = humanoid.getShape(partIndex - 1);
+    transformShape(part);
+}
+
+void transformHumanoid(Structure& humanoid) {
+    char transformChoice;
+    cout << "Do you want to transform the humanoid structure? (y/n): ";
+    cin >> transformChoice;
+
+    if (transformChoice == 'y' || transformChoice == 'Y') {
+        int transformOption;
+        cout << "Choose a transformation:\n";
+        cout << "1. Transform the entire humanoid\n";
+        cout << "2. Transform an individual part\n";
+        cout << "Enter your choice: ";
+        cin >> transformOption;
+
+        if (transformOption == 1) {
+            int operation;
+            cout << "Choose a transformation:\n";
+            cout << "1. Translate\n2. Rotate\n3. Scale\n";
+            cout << "Enter your choice: ";
+            cin >> operation;
+
+            if (operation == 1) {
+                double dx, dy, dz;
+                cout << "Enter translation values (dx, dy, dz): ";
+                cin >> dx >> dy >> dz;
+                humanoid.translate(dx, dy, dz);
+            } else if (operation == 2) {
+                double angle;
+                char axis;
+                cout << "Enter rotation angle and axis (x, y, or z): ";
+                cin >> angle >> axis;
+                humanoid.rotate(angle, axis);
+            } else if (operation == 3) {
+                double factor;
+                cout << "Enter scaling factor: ";
+                cin >> factor;
+                humanoid.scale(factor, factor, factor);
+            } else {
+                cout << "Invalid transformation option!\n";
+            }
+        } else if (transformOption == 2) {
+            transformHumanoidPart(humanoid);
+        } else {
+            cout << "Invalid choice!\n";
+        }
+    }
+}
+
 //create and plot the humanoid structure
 void createAndPlotHumanoid() {
     Structure humanoid;
@@ -122,6 +217,8 @@ void createAndPlotHumanoid() {
     humanoid.translate(-1, 0, -5.5, 5); // Left Leg
     humanoid.translate(1, 0, -5.5, 6); // Right Leg
 
+    transformHumanoid(humanoid);
+
     humanoid.plot("data/humanoid_combined.dat");
     cout << "Humanoid structure plotted! Check the GNUPLOT visualization.\n";
 }
@@ -135,35 +232,59 @@ void menu() {
     };
     menuOptions[1] = []() {
         auto shape = createShape(1);
-        if (shape) shape->plot("data/cuboid.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/cuboid.dat");
+        }
     };
     menuOptions[2] = []() {
         auto shape = createShape(2);
-        if (shape) shape->plot("data/cylinder.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/cylinder.dat");
+        }
     };
     menuOptions[3] = []() {
         auto shape = createShape(3);
-        if (shape) shape->plot("data/sphere.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/sphere.dat");
+        }
     };
     menuOptions[4] = []() {
         auto shape = createShape(4);
-        if (shape) shape->plot("data/polyline.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/polyline.dat");
+        }
     };
     menuOptions[5] = []() {
         auto shape = createShape(5);
-        if (shape) shape->plot("data/bezier.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/bezier.dat");
+        }
     };
     menuOptions[6] = []() {
         auto shape = createShape(6);
-        if (shape) shape->plot("data/triangle.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/triangle.dat");
+        }
     };
     menuOptions[7] = []() {
         auto shape = createShape(7);
-        if (shape) shape->plot("data/polygon.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/polygon.dat");
+        }
     };
     menuOptions[8] = []() {
         auto shape = createShape(8);
-        if (shape) shape->plot("data/line3D.dat");
+        if (shape) {
+            transformShape(shape);
+            shape->plot("data/line3D.dat");
+        }
     };
 
     cout << "Choose an option:\n";
