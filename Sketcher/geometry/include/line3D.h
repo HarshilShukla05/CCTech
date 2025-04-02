@@ -15,7 +15,7 @@ public:
     Line3D(); 
 
     void setPoints(double x1, double y1, double z1, double x2, double y2, double z2);
-    void plot(const std::string &filename) const override;
+    void plot(const string &filename) const override;
 
     void translate(double dx, double dy, double dz)override;
     void scale(double sx, double sy, double sz)override;
