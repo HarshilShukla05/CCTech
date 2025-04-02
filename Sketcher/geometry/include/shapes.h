@@ -2,14 +2,13 @@
 #define SHAPES_H
 
 #include <string>
-#include <vector>
 #include "plot_utils.h"
 
 using namespace std;
 
 class Shape {
 protected:
-    vector<vector<double>> vertices; 
+    Matrix vertices; // Use the Matrix typedef
 
 public:
     virtual void saveToFile(const string &filename) const = 0;

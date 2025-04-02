@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -25,38 +26,80 @@ namespace PlotUtils {
         system("gnuplot -p plot_script.gp");
     }
 
-    void translate(vector<vector<double>> &vertices, double dx, double dy, double dz) {
-        for (auto &v : vertices) {
-            v[0] += dx;
-            v[1] += dy;
-            v[2] += dz;
-        }
+    void translate(Matrix &vertices, double dx, double dy, double dz) {
+        auto translationMatrix = createTranslationMatrix(dx, dy, dz);
+        applyMatrix(vertices, translationMatrix);
     }
 
-    void scale(vector<vector<double>> &vertices, double sx, double sy, double sz) {
-        for (auto &v : vertices) {
-            v[0] *= sx;
-            v[1] *= sy;
-            v[2] *= sz;
-        }
+    void scale(Matrix &vertices, double sx, double sy, double sz) {
+        auto scalingMatrix = createScalingMatrix(sx, sy, sz);
+        applyMatrix(vertices, scalingMatrix);
     }
 
-    void rotate(vector<vector<double>> &vertices, double angle, char axis, double cx, double cy, double cz) {
-        double radians = angle * M_PI / 180.0;
+    void rotate(Matrix &vertices, double angle, char axis, double cx, double cy, double cz) {
+        // Translate to origin
+        translate(vertices, -cx, -cy, -cz);
 
-        for (auto &v : vertices) {
-            double x = v[0] - cx, y = v[1] - cy, z = v[2] - cz;
+        // Apply rotation
+        auto rotationMatrix = createRotationMatrix(angle, axis);
+        applyMatrix(vertices, rotationMatrix);
 
-            if (axis == 'x') {
-                v[1] = cy + y * cos(radians) - z * sin(radians);
-                v[2] = cz + y * sin(radians) + z * cos(radians);
-            } else if (axis == 'y') {
-                v[0] = cx + x * cos(radians) + z * sin(radians);
-                v[2] = cz - x * sin(radians) + z * cos(radians);
-            } else if (axis == 'z') {
-                v[0] = cx + x * cos(radians) - y * sin(radians);
-                v[1] = cy + x * sin(radians) + y * cos(radians);
+        // Translate back
+        translate(vertices, cx, cy, cz);
+    }
+
+    void applyMatrix(Matrix &vertices, const Matrix &matrix) {
+        for (auto &vertex : vertices) {
+            vector<double> result(3, 0);
+            for (int i = 0; i < 3; ++i) {
+                result[i] = matrix[i][0] * vertex[0] + matrix[i][1] * vertex[1] + matrix[i][2] * vertex[2] + matrix[i][3];
             }
+            vertex = result;
         }
+    }
+
+    Matrix createTranslationMatrix(double dx, double dy, double dz) {
+        return {
+            {1, 0, 0, dx},
+            {0, 1, 0, dy},
+            {0, 0, 1, dz},
+            {0, 0, 0, 1}
+        };
+    }
+
+    Matrix createScalingMatrix(double sx, double sy, double sz) {
+        return {
+            {sx, 0,  0,  0},
+            {0,  sy, 0,  0},
+            {0,  0,  sz, 0},
+            {0,  0,  0,  1}
+        };
+    }
+
+    Matrix createRotationMatrix(double angle, char axis) {
+        double radians = angle * M_PI / 180.0;
+        if (axis == 'x') {
+            return {
+                {1, 0,           0,          0},
+                {0, cos(radians), -sin(radians), 0},
+                {0, sin(radians), cos(radians),  0},
+                {0, 0,           0,          1}
+            };
+        } else if (axis == 'y') {
+            return {
+                {cos(radians),  0, sin(radians), 0},
+                {0,            1, 0,           0},
+                {-sin(radians), 0, cos(radians), 0},
+                {0,            0, 0,           1}
+            };
+        } else if (axis == 'z') {
+            return {
+                {cos(radians), -sin(radians), 0, 0},
+                {sin(radians), cos(radians),  0, 0},
+                {0,           0,            1, 0},
+                {0,           0,            0, 1}
+            };
+        }
+        return {}; 
     }
 }

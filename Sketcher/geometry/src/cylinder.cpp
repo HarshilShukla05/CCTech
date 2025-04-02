@@ -26,7 +26,7 @@ void Cylinder::generateVertices() {
 }
 
 void Cylinder::saveToFile(const string &filename) const {
-    ofstream file(filename, ios::app);
+    ofstream file(filename, ios::trunc); 
     if (!file) {
         cerr << "Error: Cannot open file for writing.\n";
         return;
