@@ -10,7 +10,10 @@ GEOM_SRC_DIR = geometry/src
 GEOM_INC_DIR = geometry/include
 
 # Object files
-OBJ = $(SRC_DIR)/main.o $(GEOM_SRC_DIR)/cuboid.o $(GEOM_SRC_DIR)/cylinder.o $(GEOM_SRC_DIR)/sphere.o $(GEOM_SRC_DIR)/polyline.o $(GEOM_SRC_DIR)/bezier.o $(GEOM_SRC_DIR)/triangle.o $(GEOM_SRC_DIR)/polygon.o $(GEOM_SRC_DIR)/line3D.o $(GEOM_SRC_DIR)/structure.o $(GEOM_SRC_DIR)/plot_utils.o
+OBJ = $(SRC_DIR)/main.o $(GEOM_SRC_DIR)/ApplicationManager.o $(GEOM_SRC_DIR)/ShapeFactory.o $(GEOM_SRC_DIR)/cuboid.o \
+      $(GEOM_SRC_DIR)/cylinder.o $(GEOM_SRC_DIR)/sphere.o $(GEOM_SRC_DIR)/polyline.o $(GEOM_SRC_DIR)/bezier.o \
+      $(GEOM_SRC_DIR)/triangle.o $(GEOM_SRC_DIR)/polygon.o $(GEOM_SRC_DIR)/line3D.o $(GEOM_SRC_DIR)/structure.o \
+      $(GEOM_SRC_DIR)/plot_utils.o
 
 # Executable
 TARGET = $(BIN_DIR)/shape_plotter
@@ -20,8 +23,16 @@ $(TARGET): $(OBJ)
 	$(CXX) $(OBJ) -o $(TARGET) -lm
 
 # Compile main.cpp
-$(SRC_DIR)/main.o: $(SRC_DIR)/main.cpp $(GEOM_INC_DIR)/shapes.h $(GEOM_INC_DIR)/structure.h
+$(SRC_DIR)/main.o: $(SRC_DIR)/main.cpp $(GEOM_INC_DIR)/ApplicationManager.h
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/main.cpp -o $(SRC_DIR)/main.o
+
+# Compile ApplicationManager.cpp
+$(GEOM_SRC_DIR)/ApplicationManager.o: $(GEOM_SRC_DIR)/ApplicationManager.cpp $(GEOM_INC_DIR)/ApplicationManager.h
+	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/ApplicationManager.cpp -o $(GEOM_SRC_DIR)/ApplicationManager.o
+
+# Compile ShapeFactory.cpp
+$(GEOM_SRC_DIR)/ShapeFactory.o: $(GEOM_SRC_DIR)/ShapeFactory.cpp $(GEOM_INC_DIR)/ShapeFactory.h
+	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/ShapeFactory.cpp -o $(GEOM_SRC_DIR)/ShapeFactory.o
 
 # Compile cuboid.cpp
 $(GEOM_SRC_DIR)/cuboid.o: $(GEOM_SRC_DIR)/cuboid.cpp $(GEOM_INC_DIR)/cuboid.h
