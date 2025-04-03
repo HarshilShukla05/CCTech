@@ -13,7 +13,7 @@ GEOM_INC_DIR = geometry/include
 OBJ = $(SRC_DIR)/main.o $(GEOM_SRC_DIR)/ApplicationManager.o $(GEOM_SRC_DIR)/ShapeFactory.o $(GEOM_SRC_DIR)/cuboid.o \
       $(GEOM_SRC_DIR)/cylinder.o $(GEOM_SRC_DIR)/sphere.o $(GEOM_SRC_DIR)/polyline.o $(GEOM_SRC_DIR)/bezier.o \
       $(GEOM_SRC_DIR)/triangle.o $(GEOM_SRC_DIR)/polygon.o $(GEOM_SRC_DIR)/line3D.o $(GEOM_SRC_DIR)/structure.o \
-      $(GEOM_SRC_DIR)/plot_utils.o
+      $(GEOM_SRC_DIR)/plot_utils.o $(GEOM_SRC_DIR)/TriangulatedPlotter.o
 
 # Executable
 TARGET = $(BIN_DIR)/shape_plotter
@@ -73,6 +73,10 @@ $(GEOM_SRC_DIR)/structure.o: $(GEOM_SRC_DIR)/structure.cpp $(GEOM_INC_DIR)/struc
 # Compile plot_utils.cpp
 $(GEOM_SRC_DIR)/plot_utils.o: $(GEOM_SRC_DIR)/plot_utils.cpp $(GEOM_INC_DIR)/plot_utils.h
 	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/plot_utils.cpp -o $(GEOM_SRC_DIR)/plot_utils.o
+
+# Compile TriangulatedPlotter.cpp
+$(GEOM_SRC_DIR)/TriangulatedPlotter.o: $(GEOM_SRC_DIR)/TriangulatedPlotter.cpp $(GEOM_INC_DIR)/TriangulatedPlotter.h
+	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/TriangulatedPlotter.cpp -o $(GEOM_SRC_DIR)/TriangulatedPlotter.o
 
 # Clean build files
 clean:
