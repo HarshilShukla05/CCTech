@@ -1,4 +1,4 @@
-# Compiler
+# Compiler and flags
 CXX = g++
 CXXFLAGS = -Wall -std=c++11 -Igeometry/include
 
@@ -9,79 +9,42 @@ SRC_DIR = application/src
 GEOM_SRC_DIR = geometry/src
 GEOM_INC_DIR = geometry/include
 
-# Object files
-OBJ = $(SRC_DIR)/main.o $(GEOM_SRC_DIR)/ApplicationManager.o $(GEOM_SRC_DIR)/ShapeFactory.o $(GEOM_SRC_DIR)/cuboid.o \
-      $(GEOM_SRC_DIR)/cylinder.o $(GEOM_SRC_DIR)/sphere.o $(GEOM_SRC_DIR)/polyline.o $(GEOM_SRC_DIR)/bezier.o \
-      $(GEOM_SRC_DIR)/triangle.o $(GEOM_SRC_DIR)/polygon.o $(GEOM_SRC_DIR)/line3D.o $(GEOM_SRC_DIR)/structure.o \
-      $(GEOM_SRC_DIR)/plot_utils.o $(GEOM_SRC_DIR)/TriangulatedPlotter.o
+# Automatically detect all .cpp files in the source directories
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp $(GEOM_SRC_DIR)/*.cpp)
 
-# Executable
+# Generate object files from the source files
+OBJ_FILES = $(patsubst %.cpp, %.o, $(SRC_FILES))
+
+# Target executable
 TARGET = $(BIN_DIR)/shape_plotter
 
-# Build the final executable
-$(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $(TARGET) -lm
+# Default rule to build the project
+all: $(TARGET)
 
-# Compile main.cpp
-$(SRC_DIR)/main.o: $(SRC_DIR)/main.cpp $(GEOM_INC_DIR)/ApplicationManager.h
-	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/main.cpp -o $(SRC_DIR)/main.o
+# Rule to link the final executable
+$(TARGET): $(OBJ_FILES) | $(BIN_DIR) $(DATA_DIR)
+	@echo "Linking and building the executable..."
+	@/usr/bin/time -f "\nBuild Time: %E" $(CXX) $(OBJ_FILES) -o $(TARGET) -lm
 
-# Compile ApplicationManager.cpp
-$(GEOM_SRC_DIR)/ApplicationManager.o: $(GEOM_SRC_DIR)/ApplicationManager.cpp $(GEOM_INC_DIR)/ApplicationManager.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/ApplicationManager.cpp -o $(GEOM_SRC_DIR)/ApplicationManager.o
+# Rule to compile .cpp files into .o files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Compile ShapeFactory.cpp
-$(GEOM_SRC_DIR)/ShapeFactory.o: $(GEOM_SRC_DIR)/ShapeFactory.cpp $(GEOM_INC_DIR)/ShapeFactory.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/ShapeFactory.cpp -o $(GEOM_SRC_DIR)/ShapeFactory.o
+# Create bin and data directories if they don't exist
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
 
-# Compile cuboid.cpp
-$(GEOM_SRC_DIR)/cuboid.o: $(GEOM_SRC_DIR)/cuboid.cpp $(GEOM_INC_DIR)/cuboid.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/cuboid.cpp -o $(GEOM_SRC_DIR)/cuboid.o
+$(DATA_DIR):
+	mkdir -p $(DATA_DIR)
 
-# Compile cylinder.cpp
-$(GEOM_SRC_DIR)/cylinder.o: $(GEOM_SRC_DIR)/cylinder.cpp $(GEOM_INC_DIR)/cylinder.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/cylinder.cpp -o $(GEOM_SRC_DIR)/cylinder.o
-
-# Compile sphere.cpp
-$(GEOM_SRC_DIR)/sphere.o: $(GEOM_SRC_DIR)/sphere.cpp $(GEOM_INC_DIR)/sphere.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/sphere.cpp -o $(GEOM_SRC_DIR)/sphere.o
-
-# Compile polyline.cpp
-$(GEOM_SRC_DIR)/polyline.o: $(GEOM_SRC_DIR)/polyline.cpp $(GEOM_INC_DIR)/polyline.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/polyline.cpp -o $(GEOM_SRC_DIR)/polyline.o
-
-# Compile bezier.cpp
-$(GEOM_SRC_DIR)/bezier.o: $(GEOM_SRC_DIR)/bezier.cpp $(GEOM_INC_DIR)/bezier.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/bezier.cpp -o $(GEOM_SRC_DIR)/bezier.o
-
-# Compile triangle.cpp
-$(GEOM_SRC_DIR)/triangle.o: $(GEOM_SRC_DIR)/triangle.cpp $(GEOM_INC_DIR)/triangle.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/triangle.cpp -o $(GEOM_SRC_DIR)/triangle.o
-
-# Compile polygon.cpp
-$(GEOM_SRC_DIR)/polygon.o: $(GEOM_SRC_DIR)/polygon.cpp $(GEOM_INC_DIR)/polygon.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/polygon.cpp -o $(GEOM_SRC_DIR)/polygon.o
-
-# Compile line3D.cpp
-$(GEOM_SRC_DIR)/line3D.o: $(GEOM_SRC_DIR)/line3D.cpp $(GEOM_INC_DIR)/line3D.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/line3D.cpp -o $(GEOM_SRC_DIR)/line3D.o
-
-# Compile structure.cpp
-$(GEOM_SRC_DIR)/structure.o: $(GEOM_SRC_DIR)/structure.cpp $(GEOM_INC_DIR)/structure.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/structure.cpp -o $(GEOM_SRC_DIR)/structure.o
-
-# Compile plot_utils.cpp
-$(GEOM_SRC_DIR)/plot_utils.o: $(GEOM_SRC_DIR)/plot_utils.cpp $(GEOM_INC_DIR)/plot_utils.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/plot_utils.cpp -o $(GEOM_SRC_DIR)/plot_utils.o
-
-# Compile TriangulatedPlotter.cpp
-$(GEOM_SRC_DIR)/TriangulatedPlotter.o: $(GEOM_SRC_DIR)/TriangulatedPlotter.cpp $(GEOM_INC_DIR)/TriangulatedPlotter.h
-	$(CXX) $(CXXFLAGS) -c $(GEOM_SRC_DIR)/TriangulatedPlotter.cpp -o $(GEOM_SRC_DIR)/TriangulatedPlotter.o
-
-# Clean build files
+# Clean rule to remove all generated files
 clean:
-	rm -f $(SRC_DIR)/*.o $(GEOM_SRC_DIR)/*.o $(TARGET)
+	rm -f $(OBJ_FILES) $(TARGET)
 
-# Build and run the project
-run: $(TARGET)
+# Run the project
+run: $(TARGET) | $(DATA_DIR)
 	./$(TARGET)
+
+# Store STL plot data in the bin directory
+stl_plot:
+	mv stl_plot.dat $(DATA_DIR)/
