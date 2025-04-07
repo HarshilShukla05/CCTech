@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -std=c++11 -Igeometry/include
+CXXFLAGS = -Wall -std=c++17 -Igeometry/include
 
 # Directories
 BIN_DIR = bin
@@ -9,42 +9,44 @@ SRC_DIR = application/src
 GEOM_SRC_DIR = geometry/src
 GEOM_INC_DIR = geometry/include
 
-# Automatically detect all .cpp files in the source directories
-SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp $(GEOM_SRC_DIR)/*.cpp)
-
-# Generate object files from the source files
+# Source and object files
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(GEOM_SRC_DIR)/*.cpp)
 OBJ_FILES = $(patsubst %.cpp, %.o, $(SRC_FILES))
 
-# Target executable
-TARGET = $(BIN_DIR)/shape_plotter
+# Output executable
+TARGET = $(BIN_DIR)/shape_plotter.exe
 
-# Default rule to build the project
+# Default rule
 all: $(TARGET)
 
-# Rule to link the final executable
+# Linking
 $(TARGET): $(OBJ_FILES) | $(BIN_DIR) $(DATA_DIR)
-	@echo "Linking and building the executable..."
-	@/usr/bin/time -f "\nBuild Time: %E" $(CXX) $(OBJ_FILES) -o $(TARGET) -lm
+	@echo Linking and building executable...
+	$(CXX) $(OBJ_FILES) -o $(TARGET) -lm
 
-# Rule to compile .cpp files into .o files
+# Compiling
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Create bin and data directories if they don't exist
+# Create directories if not exist
 $(BIN_DIR):
-	mkdir -p $(BIN_DIR)
+	@mkdir -p $(BIN_DIR)
 
 $(DATA_DIR):
-	mkdir -p $(DATA_DIR)
+	@mkdir -p $(DATA_DIR)
 
-# Clean rule to remove all generated files
+# Clean command - POSIX compatible (works in MSYS2 and Git Bash)
 clean:
-	rm -f $(OBJ_FILES) $(TARGET)
+	@echo Cleaning build artifacts...
+	@rm -f $(OBJ_FILES) $(TARGET)
 
-# Run the project
-run: $(TARGET) | $(DATA_DIR)
+# Run
+run: $(TARGET)
 	./$(TARGET)
 
-# Store STL plot data in the bin directory
+# Move STL plot file to data folder
 stl_plot:
-	mv stl_plot.dat $(DATA_DIR)/
+	@mv -f stl_plot.dat $(DATA_DIR) 2>/dev/null || true
+
+# Declare phony targets
+.PHONY: all clean run stl_plot

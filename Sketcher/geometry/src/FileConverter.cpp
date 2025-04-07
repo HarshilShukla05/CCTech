@@ -3,39 +3,61 @@
 #include <fstream>
 #include <sstream>
 #include <cstdlib>  // For system()
+#include <chrono> // For timing
+#include <iomanip> // For formatting output
+#include <array> // For std::array
+#include <set>
+#include <map>
 
 using namespace std;
 
 void FileConverter::convertObjToStl(const string& objFilename, const string& stlFilename) {
-    auto [vertices, faces] = readObj(objFilename);
+    auto start = chrono::high_resolution_clock::now();
+
+    auto objData = readObj(objFilename);
+    vector<array<double, 3>> vertices = objData.first;
+    vector<array<int, 3>> faces = objData.second;
+
     if (vertices.empty()) {
         cerr << "Error: Failed to read OBJ file or file is empty.\n";
         return;
     }
+
+    cout << "Number of vertices before conversion: " << vertices.size() + faces.size() * 3 << "\n"; // Assuming duplicates
+    cout << "Number of unique vertices after conversion: " << vertices.size() << "\n";
+    cout << "Number of original triangles: " << faces.size() << "\n";
+
     writeStl(vertices, faces, stlFilename);
+
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end - start;
+    cout << "Time taken to read and write: " << elapsed.count() << " seconds\n";
+
     cout << "Converted " << objFilename << " to " << stlFilename << "\n";
 }
 
 void FileConverter::convertStlToDat(const string& stlFilename, const string& datFilename) {
+    auto start = chrono::high_resolution_clock::now();
+
     auto vertices = readStl(stlFilename);
     if (vertices.empty()) {
         cerr << "Error: Failed to read STL file or file is empty.\n";
         return;
     }
 
-    string datFilePath = "data/" + datFilename;  // Automatically save in the data folder
+    cout << "Number of original vertices: " << vertices.size() << "\n";
+    cout << "Number of original triangles: " << vertices.size() / 3 << "\n";
 
-    // Perform triangulation and write to the DAT file
+    string datFilePath = "data/" + datFilename;
+
     ofstream outFile(datFilePath);
     if (!outFile.is_open()) {
         cerr << "Error: Could not write to DAT file: " << datFilePath << "\n";
         return;
     }
 
-    // Triangulation logic: Write vertices and edges for gnuplot
     for (size_t i = 0; i < vertices.size(); i += 3) {
         if (i + 2 < vertices.size()) {
-            // Write triangle edges
             outFile << vertices[i][0] << " " << vertices[i][1] << " " << vertices[i][2] << "\n";
             outFile << vertices[i + 1][0] << " " << vertices[i + 1][1] << " " << vertices[i + 1][2] << "\n\n";
 
@@ -45,13 +67,16 @@ void FileConverter::convertStlToDat(const string& stlFilename, const string& dat
             outFile << vertices[i + 2][0] << " " << vertices[i + 2][1] << " " << vertices[i + 2][2] << "\n";
             outFile << vertices[i][0] << " " << vertices[i][1] << " " << vertices[i][2] << "\n\n";
         }
-        outFile << "\n\n";  
+        outFile << "\n\n";
     }
 
     outFile.close();
     cout << "Converted " << stlFilename << " to " << datFilePath << "\n";
 
-    // Plot the triangulated DAT file using gnuplot
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end - start;
+    cout << "Time taken to read and write: " << elapsed.count() << " seconds\n";
+
     string gnuplotCommand = "gnuplot -e \"set view equal xyz; splot '" + datFilePath + "' with lines; pause -1\"";
     int result = system(gnuplotCommand.c_str());
     if (result != 0) {
@@ -59,15 +84,17 @@ void FileConverter::convertStlToDat(const string& stlFilename, const string& dat
     }
 }
 
-pair<vector<vector<double>>, vector<vector<int>>> 
+pair<vector<array<double, 3>>, vector<array<int, 3>>> 
 FileConverter::readObj(const string& filename) {
     ifstream file(filename);
-    vector<vector<double>> vertices;
-    vector<vector<int>> faces;
+    vector<array<double, 3>> uniqueVertices;
+    vector<array<int, 3>> faces;
+    map<array<double, 3>, int> vertexIndexMap; // Map to store vertex indices
+    int currentIndex = 0;
 
     if (!file.is_open()) {
         cerr << "Error: Could not open OBJ file: " << filename << "\n";
-        return {vertices, faces};
+        return {uniqueVertices, faces};
     }
 
     string line;
@@ -77,27 +104,35 @@ FileConverter::readObj(const string& filename) {
         iss >> prefix;
 
         if (prefix == "v") {  // Vertex line
-            double x, y, z;
-            iss >> x >> y >> z;
-            vertices.push_back({x, y, z});
+            array<double, 3> vertex;
+            iss >> vertex[0] >> vertex[1] >> vertex[2];
+            if (vertexIndexMap.find(vertex) == vertexIndexMap.end()) {
+                vertexIndexMap[vertex] = currentIndex++;
+                uniqueVertices.push_back(vertex);
+            }
         } 
         else if (prefix == "f") {  // Face line
-            vector<int> face;
-            string vertexStr;
-            while (iss >> vertexStr) {
-                int vertexIndex = stoi(vertexStr) - 1;
-                face.push_back(vertexIndex);
+            array<int, 3> face;
+            for (int i = 0; i < 3; ++i) {
+                string vertexStr;
+                iss >> vertexStr;
+                int vertexIndex = stoi(vertexStr) - 1; // OBJ indices are 1-based
+                if (vertexIndex < 0 || vertexIndex >= static_cast<int>(uniqueVertices.size())) {
+                    cerr << "Error: Invalid vertex index in face definition.\n";
+                    return {uniqueVertices, faces};
+                }
+                face[i] = vertexIndex;
             }
             faces.push_back(face);
         }
     }
 
     file.close();
-    return {vertices, faces};
+    return {uniqueVertices, faces};
 }
 
-void FileConverter::writeStl(const vector<vector<double>>& vertices, 
-            const vector<vector<int>>& faces, 
+void FileConverter::writeStl(const vector<array<double, 3>>& vertices, 
+            const vector<array<int, 3>>& faces, 
             const string& filename) {
     ofstream outFile(filename);
     if (!outFile.is_open()) {
@@ -107,8 +142,6 @@ void FileConverter::writeStl(const vector<vector<double>>& vertices,
 
     outFile << "solid obj_to_stl\n";
     for (const auto& face : faces) {
-        if (face.size() < 3) continue;  
-
         outFile << "  facet normal 0 0 0\n";
         outFile << "    outer loop\n";
 
@@ -125,9 +158,9 @@ void FileConverter::writeStl(const vector<vector<double>>& vertices,
     outFile.close();
 }
 
-vector<vector<double>> FileConverter::readStl(const string& filename) {
+vector<array<double, 3>> FileConverter::readStl(const string& filename) {
     ifstream file(filename);
-    vector<vector<double>> vertices;
+    vector<array<double, 3>> vertices;
 
     if (!file.is_open()) {
         cerr << "Error: Could not open STL file: " << filename << "\n";
@@ -141,9 +174,9 @@ vector<vector<double>> FileConverter::readStl(const string& filename) {
         iss >> prefix;
 
         if (prefix == "vertex") {
-            double x, y, z;
-            iss >> x >> y >> z;
-            vertices.push_back({x, y, z});
+            array<double, 3> vertex;
+            iss >> vertex[0] >> vertex[1] >> vertex[2];
+            vertices.push_back(vertex);
         }
     }
 
@@ -151,7 +184,7 @@ vector<vector<double>> FileConverter::readStl(const string& filename) {
     return vertices;
 }
 
-void FileConverter::writeDat(const vector<vector<double>>& vertices, 
+void FileConverter::writeDat(const vector<array<double, 3>>& vertices, 
                              const string& filename) {
     ofstream outFile(filename);
     if (!outFile.is_open()) {
