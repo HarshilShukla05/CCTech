@@ -25,7 +25,7 @@ void FileConverter::convertObjToStl(const string& objFilename, const string& stl
 
     cout << "Number of vertices before conversion: " << vertices.size() + faces.size() * 3 << "\n"; // Assuming duplicates
     cout << "Number of unique vertices after conversion: " << vertices.size() << "\n";
-    cout << "Number of original triangles: " << faces.size() << "\n";
+    cout << "Number of triangles: " << faces.size() << "\n";
 
     writeStl(vertices, faces, stlFilename);
 
