@@ -1,0 +1,5 @@
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/CMakeFiles/Sketcher.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/CMakeFiles/edit_cache.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/CMakeFiles/Sketcher_autogen_timestamp_deps.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/CMakeFiles/Sketcher_autogen.dir
