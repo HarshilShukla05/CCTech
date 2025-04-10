@@ -13,6 +13,7 @@ find_package(OpenGL REQUIRED)
 # Includes
 include_directories(
     geometry/include
+    geometry/src
     SketcherGUI
 )
 
@@ -23,11 +24,13 @@ set(GUI_SRC
     SketcherGUI/main.cpp
     SketcherGUI/mainwindow.cpp
     SketcherGUI/GLWidget.cpp
+    SketcherGUI/ShapeInputDialog.cpp
 )
 
 set(GUI_HEADERS
     SketcherGUI/mainwindow.h
     SketcherGUI/GLWidget.h
+    SketcherGUI/ShapeInputDialog.h
 )
 
 set(GUI_UI

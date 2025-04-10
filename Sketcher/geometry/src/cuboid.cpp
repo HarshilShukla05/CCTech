@@ -39,6 +39,21 @@ void Cuboid::saveToFile(const string &filename) const {
     file.close();
 }
 
+std::vector<std::vector<double>> Cuboid::getEdgeLines() const {
+    std::vector<std::vector<double>> lines;
+    int edges[12][2] = {
+        {0, 1}, {1, 2}, {2, 3}, {3, 0},
+        {4, 5}, {5, 6}, {6, 7}, {7, 4},
+        {0, 4}, {1, 5}, {2, 6}, {3, 7}
+    };
+
+    for (int i = 0; i < 12; ++i) {
+        lines.push_back(vertices[edges[i][0]]);
+        lines.push_back(vertices[edges[i][1]]);
+    }
+    return lines;
+}
+
 void Cuboid::translate(double dx, double dy, double dz) {
     PlotUtils::translate(vertices, dx, dy, dz);
 }

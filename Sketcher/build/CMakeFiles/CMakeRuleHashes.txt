@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-1dcd6533ec03586f0bad0b575c3b4f12 CMakeFiles/Sketcher_autogen
-859006815e344912bdda5a4879d88434 Sketcher_autogen/timestamp

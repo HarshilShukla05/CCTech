@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onShapeSelected(const QString &shape);
+
 private:
     Ui::MainWindow *ui;
     GLWidget *glWidget;
