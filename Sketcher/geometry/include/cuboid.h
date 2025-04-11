@@ -23,7 +23,7 @@ public:
 
     void plot(const std::string &filename) const override;
     std::vector<std::vector<double>> getEdgeLines() const;
-    const vector<vector<double>>& getVertices() const { return vertices; }
+    // const vector<vector<double>>& getVertices() const { return vertices; }
 
 };
 
