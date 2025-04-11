@@ -36,7 +36,7 @@ void MainWindow::onShapeSelected(const QString &shape) {
             glWidget->setShapeVertices(cuboid.getEdgeLines());
             glWidget->update(); // Ensure the OpenGL widget refreshes
 
-           qDebug() << "Painting cuboid with" << cuboid.getEdgeLines().size() << "vertices (line segments)";
+        //    qDebug() << "Painting cuboid with" << cuboid.getEdgeLines().size() << "vertices (line segments)";
   
         }
     }

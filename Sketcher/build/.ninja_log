@@ -1,54 +1,42 @@
 # ninja log v6
-177	1851	7659811703687813	CMakeFiles/Sketcher.dir/geometry/src/ApplicationManager.cpp.obj	9b7db999203323f
-173	2185	7659817326812390	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
-184	1332	7659811703687813	CMakeFiles/Sketcher.dir/geometry/src/cuboid.cpp.obj	c92f2d1571e9894
-3141	4932	7659798206781282	CMakeFiles/Sketcher.dir/geometry/src/triangle.cpp.obj	8cf16b88e6b80658
-3150	6550	7659798206882045	CMakeFiles/Sketcher.dir/SketcherGUI/main.cpp.obj	508b37aaa4eb5c13
-177	2644	7659812994645918	CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj	a4b03c776184cdd
-17	172	7659817325303113	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-11	564	7659799407904092	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/cmake_install.cmake	a4071c0bee1735
-2901	4550	7659798204358701	CMakeFiles/Sketcher.dir/geometry/src/sphere.cpp.obj	bedf1696fe6e6cf3
-1138	2850	7659798186713766	CMakeFiles/Sketcher.dir/geometry/src/polygon.cpp.obj	bdd371c7e1bc642a
-180	1976	7659811703687813	CMakeFiles/Sketcher.dir/geometry/src/ShapeFactory.cpp.obj	b67c7c8144e62064
-1114	3127	7659798186557505	CMakeFiles/Sketcher.dir/geometry/src/cylinder.cpp.obj	3fc370dd68fafaf0
-188	1655	7659811703855040	CMakeFiles/Sketcher.dir/geometry/src/structure.cpp.obj	954c602f7c9aec
-179	2694	7659800112940562	CMakeFiles/Sketcher.dir/SketcherGUI/ShapeInputDialog.cpp.obj	da5b5f211c3cba60
-17	172	7659817325303113	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-1104	3443	7659798186401112	CMakeFiles/Sketcher.dir/geometry/src/bezier.cpp.obj	f8995cdbf69b77b0
-1096	3664	7659798186335992	CMakeFiles/Sketcher.dir/geometry/src/FileConverter.cpp.obj	aadfb1b80c7585ab
-17	172	7659817325303113	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-11	564	7659799407904092	build.ninja	a4071c0bee1735
-1124	2916	7659798186557505	CMakeFiles/Sketcher.dir/geometry/src/line3D.cpp.obj	b81c4f19974bee5d
-2870	4404	7659798204056293	CMakeFiles/Sketcher.dir/geometry/src/polyline.cpp.obj	381172174b06b818
+886	3829	7660537954687077	CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj	1528ebc1e8c63f13
+2728	3051	7660541945998055	Sketcher.exe	d29551433c602a47
+36	218	7660541919009917	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
 1129	3145	7659798186713766	CMakeFiles/Sketcher.dir/geometry/src/plot_utils.cpp.obj	360c7d37a9463081
-17	172	7659817325303113	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-2186	2466	7659817346930399	Sketcher.exe	d29551433c602a47
-1089	5724	7659798186180065	CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj	1528ebc1e8c63f13
-20	175	7659817520873412	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-20	175	7659817520873412	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-20	175	7659817520873412	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-20	175	7659817520873412	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	207	7659817719990813	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	207	7659817719990813	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	207	7659817719990813	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	207	7659817719990813	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-209	2216	7659817722034939	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
-2217	2511	7659817742071134	Sketcher.exe	d29551433c602a47
-17	168	7659819396122345	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-17	168	7659819396122345	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-17	168	7659819396122345	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-17	168	7659819396122345	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-17	174	7659822305056584	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-17	174	7659822305056584	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-17	174	7659822305056584	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-17	174	7659822305056584	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	165	7659822488309843	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	165	7659822488309843	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	165	7659822488309843	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	165	7659822488309843	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	167	7659822626979162	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	167	7659822626979162	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-16	167	7659822626979162	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
-16	167	7659822626979162	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
-168	2199	7659822628499428	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
-2199	2498	7659822648799432	Sketcher.exe	d29551433c602a47
+2870	4404	7659798204056293	CMakeFiles/Sketcher.dir/geometry/src/polyline.cpp.obj	381172174b06b818
+1124	2916	7659798186557505	CMakeFiles/Sketcher.dir/geometry/src/line3D.cpp.obj	b81c4f19974bee5d
+11	564	7659799407904092	build.ninja	a4071c0bee1735
+36	218	7660541919009917	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+1096	3664	7659798186335992	CMakeFiles/Sketcher.dir/geometry/src/FileConverter.cpp.obj	aadfb1b80c7585ab
+1104	3443	7659798186401112	CMakeFiles/Sketcher.dir/geometry/src/bezier.cpp.obj	f8995cdbf69b77b0
+36	218	7660541919009917	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+179	2694	7659800112940562	CMakeFiles/Sketcher.dir/SketcherGUI/ShapeInputDialog.cpp.obj	da5b5f211c3cba60
+37	2686	7660518052138029	CMakeFiles/Sketcher.dir/geometry/src/ApplicationManager.cpp.obj	9b7db999203323f
+219	2728	7660541920874531	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
+44	2381	7660518052203120	CMakeFiles/Sketcher.dir/geometry/src/cuboid.cpp.obj	c92f2d1571e9894
+48	2536	7660518052203120	CMakeFiles/Sketcher.dir/geometry/src/structure.cpp.obj	954c602f7c9aec
+11	564	7659799407904092	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/cmake_install.cmake	a4071c0bee1735
+3141	4932	7659798206781282	CMakeFiles/Sketcher.dir/geometry/src/triangle.cpp.obj	8cf16b88e6b80658
+52	3665	7660518052203120	CMakeFiles/Sketcher.dir/SketcherGUI/main.cpp.obj	508b37aaa4eb5c13
+889	4248	7660537954747313	CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj	a4b03c776184cdd
+36	218	7660541919009917	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
+1114	3127	7659798186557505	CMakeFiles/Sketcher.dir/geometry/src/cylinder.cpp.obj	3fc370dd68fafaf0
+1138	2850	7659798186713766	CMakeFiles/Sketcher.dir/geometry/src/polygon.cpp.obj	bdd371c7e1bc642a
+2901	4550	7659798204358701	CMakeFiles/Sketcher.dir/geometry/src/sphere.cpp.obj	bedf1696fe6e6cf3
+41	2828	7660518052138029	CMakeFiles/Sketcher.dir/geometry/src/ShapeFactory.cpp.obj	b67c7c8144e62064
+35	906	7660542387007000	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+35	906	7660542387007000	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
+35	906	7660542387007000	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+35	906	7660542387007000	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
+914	3669	7660542387673819	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
+907	3767	7660542387507534	CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj	1528ebc1e8c63f13
+910	4227	7660542387663768	CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj	a4b03c776184cdd
+4227	4539	7660542420706254	Sketcher.exe	d29551433c602a47
+34	906	7660554761856886	Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+34	906	7660554761856886	Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
+34	906	7660554761856886	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/timestamp	fde9a8a7ec9cd08e
+34	906	7660554761856886	C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/mocs_compilation.cpp	fde9a8a7ec9cd08e
+914	3560	7660554762523820	CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj	f8331a029ebebbfe
+907	3817	7660554762357279	CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj	1528ebc1e8c63f13
+911	4255	7660554762523820	CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj	a4b03c776184cdd
+4256	4563	7660554795890484	Sketcher.exe	d29551433c602a47
