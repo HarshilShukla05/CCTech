@@ -19,7 +19,9 @@ private slots:
     void onShapeSelected(const QString &shape);
     void on_transformButton_clicked();
     void applyTransformations(const std::vector<std::vector<double>> &verts);
-
+    void on_loadFileButton_clicked();
+    void on_saveFileButton_clicked();
+    
 private:
     Ui::MainWindow *ui;
     GLWidget *glWidget;

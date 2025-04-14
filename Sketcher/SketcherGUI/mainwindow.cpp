@@ -11,9 +11,12 @@
 #include "polyline.h"
 #include "TransformDialogue.h"
 #include "plot_utils.h"
+#include "FileConverter.h"
 
 
 #include <QVBoxLayout>
+#include <QFileDialog>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -156,6 +159,30 @@ void MainWindow::on_transformButton_clicked() {
 
         glWidget->setShapeVertices(verts);
         glWidget->update();
+    }
+}
+
+void MainWindow::on_loadFileButton_clicked() {
+    QString filePath = QFileDialog::getOpenFileName(this, "Open File", "", "3D Files (*.obj *.stl)");
+    if (!filePath.isEmpty()) {
+        FileConverter converter;
+        std::vector<std::vector<double>> vertices = converter.load(filePath.toStdString());
+        
+        if (!vertices.empty()) {
+            glWidget->setShapeVertices(vertices);
+            glWidget->update();
+        } else {
+            qDebug() << "Failed to load file or no geometry data.";
+        }
+    }
+}
+
+void MainWindow::on_saveFileButton_clicked() {
+    QString filePath = QFileDialog::getSaveFileName(this, "Save File", "", "3D Files (*.obj *.stl)");
+    if (!filePath.isEmpty()) {
+        FileConverter converter;
+        std::vector<std::vector<double>> vertices = glWidget->getShapeVertices();  // Get current shape
+        converter.save(vertices, filePath.toStdString());
     }
 }
 

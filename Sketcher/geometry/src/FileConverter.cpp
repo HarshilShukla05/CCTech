@@ -8,6 +8,7 @@
 #include <array> // For std::array
 #include <set>
 #include <map>
+#include <cmath>
 
 using namespace std;
 
@@ -197,4 +198,64 @@ void FileConverter::writeDat(const vector<array<double, 3>>& vertices,
     }
 
     outFile.close();
+}
+
+bool endsWith(const std::string& str, const std::string& suffix) {
+    return str.size() >= suffix.size() &&
+           str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+}
+
+std::vector<std::vector<double>> FileConverter::load(const std::string& filePath) {
+    if (endsWith(filePath, ".stl")) {
+        auto rawVertices = readStl(filePath);
+        std::vector<std::vector<double>> flatVertices;
+        for (const auto& vertex : rawVertices) {
+            flatVertices.push_back({vertex[0], vertex[1], vertex[2]}); // Explicit conversion
+        }
+        return flatVertices;
+    } else if (endsWith(filePath, ".obj")) {
+        auto objData = readObj(filePath);
+        std::vector<std::vector<double>> flatVertices;
+        for (const auto& v : objData.first) {
+            flatVertices.push_back({v[0], v[1], v[2]});
+        }
+        return flatVertices;
+    } else {
+        std::cerr << "Unsupported file format for load: " << filePath << "\n";
+        return {};
+    }
+}
+
+void FileConverter::save(const std::vector<std::vector<double>>& vertices, const std::string& filePath) {
+    if (endsWith(filePath, ".stl")) {
+        // Fake triangle connectivity (just write as loose triangles)
+        std::vector<std::array<double, 3>> rawVerts;
+        for (const auto& v : vertices) {
+            if (v.size() == 3)
+                rawVerts.push_back({v[0], v[1], v[2]});
+        }
+
+        std::vector<std::array<int, 3>> fakeFaces;
+        for (size_t i = 0; i + 2 < rawVerts.size(); i += 3) {
+            fakeFaces.push_back({static_cast<int>(i), static_cast<int>(i + 1), static_cast<int>(i + 2)});
+        }
+
+        writeStl(rawVerts, fakeFaces, filePath);
+    } 
+    else if (endsWith(filePath, ".obj")) {
+        std::ofstream out(filePath);
+        if (!out.is_open()) {
+            std::cerr << "Failed to open OBJ file for writing: " << filePath << "\n";
+            return;
+        }
+
+        for (const auto& v : vertices) {
+            out << "v " << v[0] << " " << v[1] << " " << v[2] << "\n";
+        }
+
+        // Optional: Write dummy faces (only if needed)
+        out.close();
+    } else {
+        std::cerr << "Unsupported file format for save: " << filePath << "\n";
+    }
 }
