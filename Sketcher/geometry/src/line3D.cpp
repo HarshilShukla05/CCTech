@@ -65,3 +65,8 @@ void Line3D::loadFromFile(const string &filename) {
     }
     file.close();
 }
+
+std::vector<std::vector<double>> Line3D::getEdgeLines() const {
+    // Return the points that define the line as the "edge lines"
+    return points;
+}

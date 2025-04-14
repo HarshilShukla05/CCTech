@@ -5,8 +5,13 @@
 #include "cuboid.h"
 #include "cylinder.h"
 #include "sphere.h"
+#include "bezier.h"
+#include "polygon.h"
+#include "line3D.h"
+#include "polyline.h"
 #include "TransformDialogue.h"
 #include "plot_utils.h"
+
 
 #include <QVBoxLayout>
 
@@ -63,6 +68,63 @@ void MainWindow::onShapeSelected(const QString &shape) {
 
             Sphere sphere(radius, segments);
             glWidget->setShapeVertices(sphere.getEdgeLines());
+            glWidget->update();
+        }
+    }
+    else if (shape == "Bezier") {
+        ShapeInputDialog dialog(shape, this);
+        if (dialog.exec() == QDialog::Accepted) {
+            QList<QList<double>> controlPoints = dialog.getBezierControlPoints();
+            Bezier bezier;
+            for (const QList<double> &pt : controlPoints) {
+                if (pt.size() == 3)
+                    bezier.addControlPoint(pt[0], pt[1], pt[2]);
+            }
+    
+            std::vector<std::vector<double>> curve = bezier.calculateBezierCurve(100);
+            glWidget->setShapeVertices(curve);
+            glWidget->update();
+        }
+    } 
+    else if (shape == "Polygon") {
+        ShapeInputDialog dialog(shape, this);
+        if (dialog.exec() == QDialog::Accepted) {
+            int numSides = dialog.getInputs()["Number of Sides"];  // Get number of sides
+            double radius = dialog.getInputs()["Radius"];  // Get radius for the polygon
+    
+            Polygon polygon(numSides, radius); 
+            glWidget->setShapeVertices(polygon.getEdgeLines());  
+            glWidget->update();  
+        }
+    }
+    else if (shape == "3DLine") {
+        ShapeInputDialog dialog(shape, this);
+        if (dialog.exec() == QDialog::Accepted) {
+            QMap<QString, double> values = dialog.getInputs();
+            double x1 = values["X1"];
+            double y1 = values["Y1"];
+            double z1 = values["Z1"];
+            double x2 = values["X2"];
+            double y2 = values["Y2"];
+            double z2 = values["Z2"];
+
+            Line3D line;
+            line.setPoints(x1, y1, z1, x2, y2, z2);
+            glWidget->setShapeVertices(line.getEdgeLines());
+            glWidget->update();
+        }
+    }
+    else if (shape == "Polyline") {
+        ShapeInputDialog dialog(shape, this);
+        if (dialog.exec() == QDialog::Accepted) {
+            QVector<QVector<double>> points = dialog.getPolylinePoints();
+
+            Polyline polyline;
+            for (const auto &point : points) {
+                polyline.addPoint(point[0], point[1], point[2]);
+            }
+
+            glWidget->setShapeVertices(polyline.getEdgeLines()); // Corrected type
             glWidget->update();
         }
     }

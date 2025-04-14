@@ -7,6 +7,7 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QSizeF \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QStringList \
+	C:/Qt/6.9.0/mingw_64/include/QtCore/QVector \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h \
@@ -143,6 +144,7 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qutf8stringview.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qvariant.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qvarlengtharray.h \
+	C:/Qt/6.9.0/mingw_64/include/QtCore/qvector.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
@@ -214,6 +216,7 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QLayout \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QSpinBox \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/QWidget \
 	C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \

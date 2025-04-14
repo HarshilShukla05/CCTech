@@ -58,3 +58,12 @@ void Polyline::plot(const string& filename) const {
     saveToFile(filename);
     PlotUtils::plot(filename, "Polyline", "green");
 }
+
+std::vector<std::vector<double>> Polyline::getEdgeLines() const {
+    std::vector<std::vector<double>> lines;
+    for (size_t i = 0; i < points.size() - 1; ++i) {
+        lines.push_back(points[i]);
+        lines.push_back(points[i + 1]);
+    }
+    return lines;
+}

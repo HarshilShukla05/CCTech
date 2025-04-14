@@ -55,16 +55,17 @@ shared_ptr<Shape> ShapeFactory::createShape(int choice) {
             return make_shared<Triangle>(x1, y1, z1, x2, y2, z2, x3, y3, z3);
         }},
         {7, []() {
-            int numVertices;
-            cout << "Enter the number of vertices for the polygon: ";
+            int numVertices;double radius;
+            cout << "Enter the number of vertices and radius for the polygon: ";
+            // cout << "Enter the number of vertices for the polygon: ";
             cin >> numVertices;
-            auto polygon = make_shared<Polygon>(numVertices);
-            for (int i = 0; i < numVertices; ++i) {
-                double x, y, z;
-                cout << "Enter x, y, z for vertex " << i + 1 << ": ";
-                cin >> x >> y >> z;
-                polygon->addVertex(x, y, z);
-            }
+            auto polygon = make_shared<Polygon>(numVertices, radius);
+            // for (int i = 0; i < numVertices; ++i) {
+            //     double x, y, z;
+            //     cout << "Enter x, y, z for vertex " << i + 1 << ": ";
+            //     cin >> x >> y >> z;
+            //     polygon->addVertex(x, y, z);
+            // }
             return polygon;
         }},
         {8, []() {

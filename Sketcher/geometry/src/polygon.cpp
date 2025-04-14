@@ -6,10 +6,22 @@
 
 using namespace std;
 
-Polygon::Polygon(int sides) {
+Polygon::Polygon(int sides, double radius) {
     vertices.reserve(sides);
+    generateRegularPolygon(sides, radius);
 }
 
+// Generate vertices for a regular polygon based on the number of sides and radius
+void Polygon::generateRegularPolygon(int sides, double radius) {
+    double angleIncrement = 2 * M_PI / sides;  // Angle between adjacent vertices
+    for (int i = 0; i < sides; ++i) {
+        double angle = i * angleIncrement;
+        double x = radius * cos(angle);  // X-coordinate of the vertex
+        double y = radius * sin(angle);  // Y-coordinate of the vertex
+        double z = 0.0;  // Assuming a 2D polygon (on the XY plane)
+        addVertex(x, y, z);
+    }
+}
 
 void Polygon::addVertex(double x, double y, double z) {
     vertices.push_back({x, y, z});
@@ -27,7 +39,6 @@ void Polygon::calculateCentroid(double &cx, double &cy, double &cz) {
     cy /= vertices.size();
     cz /= vertices.size();
 }
-
 
 void Polygon::plot(const string &filename) const {
     saveToFile(filename);
@@ -80,4 +91,20 @@ void Polygon::loadFromFile(const string &filename) {
         vertices.push_back({x, y, z});
     }
     file.close();
+}
+
+std::vector<std::vector<double>> Polygon::getEdgeLines() const {
+    std::vector<std::vector<double>> edgeLines;
+
+    if (vertices.size() < 2) return edgeLines;
+
+    for (size_t i = 0; i < vertices.size(); ++i) {
+        const auto& start = vertices[i];
+        const auto& end = vertices[(i + 1) % vertices.size()]; // loop back to close the polygon
+
+        edgeLines.push_back(start);
+        edgeLines.push_back(end);
+    }
+
+    return edgeLines;
 }

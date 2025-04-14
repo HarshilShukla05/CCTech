@@ -111,14 +111,14 @@ void Structure::loadFromFile(const string &filename) {
             file >> x1 >> y1 >> z1 >> x2 >> y2 >> z2 >> x3 >> y3 >> z3;
             shapes.push_back(make_shared<Triangle>(x1, y1, z1, x2, y2, z2, x3, y3, z3));
         } else if (shapeType == "Polygon") {
-            int numVertices;
-            file >> numVertices;
-            auto polygon = make_shared<Polygon>(numVertices);
-            for (int i = 0; i < numVertices; ++i) {
-                double x, y, z;
-                file >> x >> y >> z;
-                polygon->addVertex(x, y, z);
-            }
+            int numVertices;double radius;
+            file >> numVertices >> radius;
+            auto polygon = make_shared<Polygon>(numVertices, radius);
+            // for (int i = 0; i < numVertices; ++i) {
+            //     double x, y, z;
+            //     file >> x >> y >> z;
+            //     polygon->addVertex(x, y, z);
+            // }
             shapes.push_back(polygon);
         } else if (shapeType == "Line3D") {
             double x1, y1, z1, x2, y2, z2;

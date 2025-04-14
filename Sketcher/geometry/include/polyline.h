@@ -23,6 +23,7 @@ public:
 
     void saveToFile(const string& filename) const;  
     void loadFromFile(const string& filename); 
+    std::vector<std::vector<double>> getEdgeLines() const; // Corrected return type
 };
 
 #endif
