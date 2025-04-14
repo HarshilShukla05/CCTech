@@ -25,12 +25,14 @@ set(GUI_SRC
     SketcherGUI/mainwindow.cpp
     SketcherGUI/GLWidget.cpp
     SketcherGUI/ShapeInputDialog.cpp
+    SketcherGUI/TransformDialogue.cpp
 )
 
 set(GUI_HEADERS
     SketcherGUI/mainwindow.h
     SketcherGUI/GLWidget.h
     SketcherGUI/ShapeInputDialog.h
+    SketcherGUI/TransformDialogue.h
 )
 
 set(GUI_UI

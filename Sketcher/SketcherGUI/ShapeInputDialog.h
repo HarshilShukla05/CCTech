@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QString>
 
+
 class ShapeInputDialog : public QDialog {
     Q_OBJECT
 

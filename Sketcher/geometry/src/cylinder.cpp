@@ -54,6 +54,31 @@ void Cylinder::loadFromFile(const string &filename) {
     
 }
 
+std::vector<std::vector<double>> Cylinder::getEdgeLines() const {
+    std::vector<std::vector<double>> lines;
+
+    // Bottom circle
+    for (int i = 0; i < resolution; ++i) {
+        lines.push_back(vertices[i]);
+        lines.push_back(vertices[(i + 1) % resolution]);
+    }
+
+    // Top circle
+    for (int i = 0; i < resolution; ++i) {
+        int topStart = resolution;
+        lines.push_back(vertices[topStart + i]);
+        lines.push_back(vertices[topStart + (i + 1) % resolution]);
+    }
+
+    // Vertical edges (sides)
+    for (int i = 0; i < resolution; ++i) {
+        lines.push_back(vertices[i]);
+        lines.push_back(vertices[i + resolution]);
+    }
+
+    return lines;
+}
+
 void Cylinder::plot(const string& filename) const {
     saveToFile(filename);
     PlotUtils::plot(filename, "Cylinder", "black");

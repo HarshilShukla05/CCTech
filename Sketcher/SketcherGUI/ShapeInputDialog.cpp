@@ -14,9 +14,9 @@ ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
     if (shapeType == "Cuboid") {
         parameters = {"Length", "Width", "Height"};
     } else if (shapeType == "Cylinder") {
-        parameters = {"Radius", "Height"};
+        parameters = {"Radius", "Height", "Resolution"};
     } else if (shapeType == "Sphere") {
-        parameters = {"Radius"};
+        parameters = {"Radius", "Segments"};
     }
 
     for (const QString &param : parameters) {

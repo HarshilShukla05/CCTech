@@ -366,6 +366,12 @@
 			null
 		],
 		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.h",
+			"MU",
+			"KI5LX645S3/moc_TransformDialogue.cpp",
+			null
+		],
+		[
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/mainwindow.h",
 			"MU",
 			"KI5LX645S3/moc_mainwindow.cpp",
@@ -457,6 +463,11 @@
 		],
 		[
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.cpp",
 			"MU",
 			null
 		],

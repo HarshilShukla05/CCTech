@@ -32,6 +32,7 @@ public:
     void rotate(double angle, char axis) override;
 
     void plot(const std::string &filename) const override;
+    std::vector<std::vector<double>> getEdgeLines()const;
 };
 
 #endif

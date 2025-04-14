@@ -30,6 +30,8 @@ public:
 
     void saveToFile(const string &filename) const override;
     void loadFromFile(const string &filename) override;
+    std::vector<std::vector<double>> getEdgeLines() const ;
+
 };
 
 #endif

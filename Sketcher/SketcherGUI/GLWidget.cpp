@@ -16,6 +16,10 @@ void GLWidget::setShapeVertices(const std::vector<std::vector<double>> &verts) {
     update();
 }
 
+std::vector<std::vector<double>> GLWidget::getShapeVertices() const {
+    return vertices;
+}
+
 void GLWidget::resizeGL(int w, int h) {
     glViewport(0, 0, w, h);
 
@@ -96,7 +100,7 @@ void GLWidget::paintGL() {
         glVertex3f(v1[0], v1[1], v1[2]);
         glVertex3f(v2[0], v2[1], v2[2]);
     }
-    qDebug() << "Painting" << vertices.size() << "points";
+    // qDebug() << "Painting" << vertices.size() << "points";
 
     glEnd();
 }

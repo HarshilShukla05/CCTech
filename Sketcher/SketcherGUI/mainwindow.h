@@ -17,6 +17,8 @@ public:
     
 private slots:
     void onShapeSelected(const QString &shape);
+    void on_transformButton_clicked();
+    void applyTransformations(const std::vector<std::vector<double>> &verts);
 
 private:
     Ui::MainWindow *ui;

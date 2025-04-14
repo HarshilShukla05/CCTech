@@ -68,3 +68,33 @@ void Sphere::loadFromFile(const string &filename) {
     }
     file.close();
 }
+
+
+std::vector<std::vector<double>> Sphere::getEdgeLines() const {
+    std::vector<std::vector<double>> lines;
+
+    int rings = segments + 1;            // Number of latitude circles (from pole to pole)
+    int pointsPerRing = 2 * segments;    // Longitude divisions per ring
+
+    for (int i = 0; i < rings; ++i) {
+        for (int j = 0; j < pointsPerRing; ++j) {
+            int current = i * pointsPerRing + j;
+            int next = i * pointsPerRing + (j + 1) % pointsPerRing;
+
+            // Horizontal ring connections
+            if (j < pointsPerRing) {
+                lines.push_back(vertices[current]);
+                lines.push_back(vertices[next]);
+            }
+
+            // Vertical connections (to the next ring down)
+            if (i < rings - 1) {
+                int below = (i + 1) * pointsPerRing + j;
+                lines.push_back(vertices[current]);
+                lines.push_back(vertices[below]);
+            }
+        }
+    }
+
+    return lines;
+}

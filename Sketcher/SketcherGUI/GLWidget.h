@@ -21,6 +21,7 @@ private:
 public:
     explicit GLWidget(QWidget *parent = nullptr);
     void setShapeVertices(const std::vector<std::vector<double>> &verts);
+    std::vector<std::vector<double>> getShapeVertices() const;
 
 protected:
     void initializeGL() override;

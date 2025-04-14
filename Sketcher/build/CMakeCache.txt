@@ -198,9 +198,6 @@ CMAKE_OBJCOPY:FILEPATH=C:/msys64/mingw64/bin/objcopy.exe
 //Path to a program.
 CMAKE_OBJDUMP:FILEPATH=C:/msys64/mingw64/bin/objdump.exe
 
-//No help, variable specified on the command line.
-CMAKE_PREFIX_PATH:UNINITIALIZED=C:/Qt/6.9.0/mingw_64/lib/cmake
-
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
 
@@ -287,9 +284,6 @@ CMAKE_STRIP:FILEPATH=C:/msys64/mingw64/bin/strip.exe
 //Path to a program.
 CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 
-//No help, variable specified on the command line.
-CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=C:\Qt\6.9.0\mingw_64\bin\\../lib/cmake/Qt6\qt.toolchain.cmake
-
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -354,8 +348,8 @@ Qt6Widgets_DIR:PATH=C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets
 //The directory containing a CMake configuration file for Qt6ZlibPrivate.
 Qt6ZlibPrivate_DIR:PATH=C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate
 
-//The directory containing a CMake configuration file for Qt6.
-Qt6_DIR:PATH=C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6
+//No help, variable specified on the command line.
+Qt6_DIR:UNINITIALIZED=C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6
 
 //Value Computed by CMake
 Sketcher_BINARY_DIR:STATIC=C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build
