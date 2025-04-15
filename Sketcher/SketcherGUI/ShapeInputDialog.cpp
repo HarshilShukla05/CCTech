@@ -12,8 +12,11 @@ ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
 
     QFormLayout *formLayout = new QFormLayout;
     QStringList parameters;
-
-    if (shapeType == "Cuboid") {
+    
+    if(shapeType == "Select Shape"){
+        parameters = {"Cuboid", "Cylinder", "Sphere", "Bezier", "Polygon", "3DLine", "Polyline", "Triangle"};
+    }
+    else if (shapeType == "Cuboid") {
         parameters = {"Length", "Width", "Height"};
     } else if (shapeType == "Cylinder") {
         parameters = {"Radius", "Height", "Resolution"};

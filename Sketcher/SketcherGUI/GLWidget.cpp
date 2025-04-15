@@ -13,6 +13,15 @@ void GLWidget::initializeGL() {
 
 void GLWidget::setShapeVertices(const std::vector<std::vector<double>> &verts) {
     vertices = verts;
+    faceIndices.clear(); // Clear face indices for normal shapes
+    center = computeCenter(); // Compute center
+    update();
+}
+
+void GLWidget::setShapeData(const std::vector<std::vector<double>> &verts, const std::vector<std::array<int, 3>> &faces) {
+    vertices = verts;
+    faceIndices = faces;
+    center = computeCenter(); // Compute center
     update();
 }
 
@@ -51,56 +60,63 @@ QVector3D GLWidget::computeCenter() const {
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event) {
-    lastMousePos = event->pos();
+    lastMousePosition = event->pos();
 }
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event) {
-    int dx = static_cast<int>(event->position().x() - lastMousePos.x());
-    int dy = static_cast<int>(event->position().y() - lastMousePos.y());
+    int dx = event->pos().x() - lastMousePosition.x();
+    int dy = event->pos().y() - lastMousePosition.y();
 
     if (event->buttons() & Qt::LeftButton) {
         rotationX += dy;
         rotationY += dx;
-        update();
     }
 
-    lastMousePos = event->position().toPoint();
-    // event->accept();
+    lastMousePosition = event->pos();
+    update();
 }
 
 void GLWidget::wheelEvent(QWheelEvent *event) {
-    if (event->angleDelta().y() > 0)
-        zoom -= 5.0f;  // Zoom in
-    else
-        zoom += 5.0f;  // Zoom out
-
-    zoom = std::clamp(zoom, 10.0f, 1000.0f); // Prevent extreme zoom
+    zoom += event->angleDelta().y() / 120.0f; // Adjust zoom level
     update();
 }
 
 // Paint GL
 void GLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glTranslatef(0.0f, 0.0f, -zoom);
+    // Apply transformations (zoom, translation to center, rotation)
+    glTranslatef(0.0f, 0.0f, zoom); // Apply zoom first
+    glRotatef(rotationX, 1.0f, 0.0f, 0.0f); // Apply rotation around X-axis
+    glRotatef(rotationY, 0.0f, 1.0f, 0.0f); // Apply rotation around Y-axis
+    glTranslatef(-center.x(), -center.y(), -center.z()); // Translate to center after rotation
 
-    glRotatef(rotationX, 1.0f, 0.0f, 0.0f);
-    glRotatef(rotationY, 0.0f, 1.0f, 0.0f);
+    if (!faceIndices.empty()) {
+        // Render using face indices (for OBJ/STL files)
+        glBegin(GL_TRIANGLES);
+        for (const auto& face : faceIndices) {
+            for (int i = 0; i < 3; ++i) {
+                const auto& vertex = vertices[face[i]];
+                glVertex3d(vertex[0], vertex[1], vertex[2]);
+            }
+        }
+        glEnd();
+    } else {
+        // Render as lines or points (for shapes without triangles)
+        glBegin(GL_LINES);
+        for (size_t i = 0; i + 1 < vertices.size(); i += 2) {
+            glVertex3d(vertices[i][0], vertices[i][1], vertices[i][2]);
+            glVertex3d(vertices[i + 1][0], vertices[i + 1][1], vertices[i + 1][2]);
+        }
+        glEnd();
 
-    QVector3D center = computeCenter();
-    glTranslatef(-center.x(), -center.y(), -center.z());
-    glColor3f(1.0f, 1.0f, 0.0f); // Yellow
-
-    glBegin(GL_LINES);
-    for (size_t i = 0; i + 1 < vertices.size(); i += 2) {
-        const auto &v1 = vertices[i];
-        const auto &v2 = vertices[i + 1];
-        glVertex3f(v1[0], v1[1], v1[2]);
-        glVertex3f(v2[0], v2[1], v2[2]);
+        // If vertices are not paired, render remaining points
+        glBegin(GL_POINTS);
+        if (vertices.size() % 2 != 0) {
+            const auto& vertex = vertices.back();
+            glVertex3d(vertex[0], vertex[1], vertex[2]);
+        }
+        glEnd();
     }
-    // qDebug() << "Painting" << vertices.size() << "points";
-
-    glEnd();
 }

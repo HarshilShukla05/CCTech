@@ -205,24 +205,32 @@ bool endsWith(const std::string& str, const std::string& suffix) {
            str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
 }
 
-std::vector<std::vector<double>> FileConverter::load(const std::string& filePath) {
+std::pair<std::vector<std::vector<double>>, std::vector<std::array<int, 3>>> 
+FileConverter::load(const std::string& filePath) {
     if (endsWith(filePath, ".stl")) {
         auto rawVertices = readStl(filePath);
         std::vector<std::vector<double>> flatVertices;
         for (const auto& vertex : rawVertices) {
-            flatVertices.push_back({vertex[0], vertex[1], vertex[2]}); // Explicit conversion
+            flatVertices.push_back({vertex[0], vertex[1], vertex[2]});
         }
-        return flatVertices;
+
+        // Generate dummy faces for STL (assuming triangles)
+        std::vector<std::array<int, 3>> faces;
+        for (size_t i = 0; i + 2 < rawVertices.size(); i += 3) {
+            faces.push_back({static_cast<int>(i), static_cast<int>(i + 1), static_cast<int>(i + 2)});
+        }
+
+        return {flatVertices, faces};
     } else if (endsWith(filePath, ".obj")) {
         auto objData = readObj(filePath);
         std::vector<std::vector<double>> flatVertices;
         for (const auto& v : objData.first) {
             flatVertices.push_back({v[0], v[1], v[2]});
         }
-        return flatVertices;
+        return {flatVertices, objData.second};
     } else {
         std::cerr << "Unsupported file format for load: " << filePath << "\n";
-        return {};
+        return {{}, {}};
     }
 }
 

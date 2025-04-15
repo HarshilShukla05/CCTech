@@ -10,6 +10,7 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QComboBox" name="shapeComboBox">
+        <item><property name="text"><string>Select shape</string></property></item>
         <item><property name="text"><string>Cuboid</string></property></item>
         <item><property name="text"><string>Sphere</string></property></item>
         <item><property name="text"><string>Cylinder</string></property></item>

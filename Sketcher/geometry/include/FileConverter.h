@@ -10,8 +10,9 @@ class FileConverter {
 public:
     void convertObjToStl(const std::string& objFilename, const std::string& stlFilename);
     void convertStlToDat(const std::string& stlFilename, const std::string& datFilename);
-    std::vector<std::vector<double>> load(const std::string& filePath);
-void save(const std::vector<std::vector<double>>& vertices, const std::string& filePath);
+    std::pair<std::vector<std::vector<double>>, std::vector<std::array<int, 3>>> 
+    load(const std::string& filePath); // Updated declaration
+    void save(const std::vector<std::vector<double>>& vertices, const std::string& filePath);
 
 private:
     std::pair<std::vector<std::array<double, 3>>, std::vector<std::array<int, 3>>> 

@@ -170,3 +170,15 @@ void Bezier::loadFromFile(const string &filename) {
     }
     file.close();
 }
+
+std::vector<std::vector<double>> Bezier::getEdgeLines() const {
+    std::vector<std::vector<double>> lines;
+    std::vector<std::vector<double>> curve = calculateBezierCurve(100); // 100 segments for smoothness
+
+    for (size_t i = 0; i < curve.size() - 1; ++i) {
+        lines.push_back(curve[i]);
+        lines.push_back(curve[i + 1]);
+    }
+
+    return lines;
+}

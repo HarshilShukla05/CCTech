@@ -53,6 +53,7 @@ public:
         shapeComboBox->addItem(QString());
         shapeComboBox->addItem(QString());
         shapeComboBox->addItem(QString());
+        shapeComboBox->addItem(QString());
         shapeComboBox->setObjectName("shapeComboBox");
 
         verticalLayout->addWidget(shapeComboBox);
@@ -104,13 +105,14 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Shape Plotter", nullptr));
-        shapeComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Cuboid", nullptr));
-        shapeComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "Sphere", nullptr));
-        shapeComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "Cylinder", nullptr));
-        shapeComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "Polygon", nullptr));
-        shapeComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "Bezier", nullptr));
-        shapeComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "Polyline", nullptr));
-        shapeComboBox->setItemText(6, QCoreApplication::translate("MainWindow", "3DLine", nullptr));
+        shapeComboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Select shape", nullptr));
+        shapeComboBox->setItemText(1, QCoreApplication::translate("MainWindow", "Cuboid", nullptr));
+        shapeComboBox->setItemText(2, QCoreApplication::translate("MainWindow", "Sphere", nullptr));
+        shapeComboBox->setItemText(3, QCoreApplication::translate("MainWindow", "Cylinder", nullptr));
+        shapeComboBox->setItemText(4, QCoreApplication::translate("MainWindow", "Polygon", nullptr));
+        shapeComboBox->setItemText(5, QCoreApplication::translate("MainWindow", "Bezier", nullptr));
+        shapeComboBox->setItemText(6, QCoreApplication::translate("MainWindow", "Polyline", nullptr));
+        shapeComboBox->setItemText(7, QCoreApplication::translate("MainWindow", "3DLine", nullptr));
 
         loadFileButton->setText(QCoreApplication::translate("MainWindow", "Load File", nullptr));
         saveFileButton->setText(QCoreApplication::translate("MainWindow", "Save File", nullptr));

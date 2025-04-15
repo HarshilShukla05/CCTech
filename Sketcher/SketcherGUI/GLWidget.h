@@ -10,18 +10,22 @@ class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
 
 private:
     std::vector<std::vector<double>> vertices;
+    std::vector<std::array<int, 3>> faceIndices; // New member variable
+    QPoint lastMousePosition; // For mouse interaction
 
-    float rotationX = 0.0f;
-    float rotationY = 0.0f;
-    float zoom = -100.0f;
+    float rotationX = 0.0f;   // Rotation around X-axis
+    float rotationY = 0.0f;   // Rotation around Y-axis
+    float zoom = -5.0f;       // Zoom level
+    QVector3D center;         // Center of the shape
 
-    QPoint lastMousePos;
-    QVector3D computeCenter() const;
+    QVector3D computeCenter() const; // New method to compute center
 
 public:
     explicit GLWidget(QWidget *parent = nullptr);
-    void setShapeVertices(const std::vector<std::vector<double>> &verts);
+    void setShapeVertices(const std::vector<std::vector<double>> &verts); // For normal shapes
     std::vector<std::vector<double>> getShapeVertices() const;
+    void setShapeData(const std::vector<std::vector<double>> &verts, 
+                      const std::vector<std::array<int, 3>> &faces); // New method
 
 protected:
     void initializeGL() override;

@@ -47,7 +47,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
 
             Cuboid cuboid(length, width, height);
             glWidget->setShapeVertices(cuboid.getEdgeLines());
-            glWidget->update();
         }
     } else if (shape == "Cylinder") {
         ShapeInputDialog dialog(shape, this);
@@ -59,7 +58,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
 
             Cylinder cylinder(radius, height, resolution);
             glWidget->setShapeVertices(cylinder.getEdgeLines());
-            glWidget->update();
         }
     }
     else if (shape == "Sphere") {
@@ -71,7 +69,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
 
             Sphere sphere(radius, segments);
             glWidget->setShapeVertices(sphere.getEdgeLines());
-            glWidget->update();
         }
     }
     else if (shape == "Bezier") {
@@ -86,7 +83,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
     
             std::vector<std::vector<double>> curve = bezier.calculateBezierCurve(100);
             glWidget->setShapeVertices(curve);
-            glWidget->update();
         }
     } 
     else if (shape == "Polygon") {
@@ -97,7 +93,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
     
             Polygon polygon(numSides, radius); 
             glWidget->setShapeVertices(polygon.getEdgeLines());  
-            glWidget->update();  
         }
     }
     else if (shape == "3DLine") {
@@ -114,7 +109,6 @@ void MainWindow::onShapeSelected(const QString &shape) {
             Line3D line;
             line.setPoints(x1, y1, z1, x2, y2, z2);
             glWidget->setShapeVertices(line.getEdgeLines());
-            glWidget->update();
         }
     }
     else if (shape == "Polyline") {
@@ -128,9 +122,9 @@ void MainWindow::onShapeSelected(const QString &shape) {
             }
 
             glWidget->setShapeVertices(polyline.getEdgeLines()); // Corrected type
-            glWidget->update();
         }
     }
+    glWidget->update();
 }
 
 void MainWindow::on_transformButton_clicked() {
@@ -166,11 +160,12 @@ void MainWindow::on_loadFileButton_clicked() {
     QString filePath = QFileDialog::getOpenFileName(this, "Open File", "", "3D Files (*.obj *.stl)");
     if (!filePath.isEmpty()) {
         FileConverter converter;
-        std::vector<std::vector<double>> vertices = converter.load(filePath.toStdString());
-        
+        auto result = converter.load(filePath.toStdString());
+        const auto& vertices = result.first;
+        const auto& faces = result.second;
+
         if (!vertices.empty()) {
-            glWidget->setShapeVertices(vertices);
-            glWidget->update();
+            glWidget->setShapeData(vertices, faces);
         } else {
             qDebug() << "Failed to load file or no geometry data.";
         }
