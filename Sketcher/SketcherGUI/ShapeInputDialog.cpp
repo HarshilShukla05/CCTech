@@ -6,6 +6,12 @@
 #include <QLabel>
 #include <QDebug>
 
+int interpolationPoints = 100; // Default value
+
+int getInterpolationPoints() {
+    return interpolationPoints;
+}
+
 ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
     : QDialog(parent) {
     setWindowTitle("Enter " + shapeType + " dimensions");
@@ -32,7 +38,9 @@ ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
         interpolationPointSpinBox->setValue(100); // default value
         formLayout->addRow(interpLabel, interpolationPointSpinBox);
 
-        
+        connect(interpolationPointSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), this, [=](int value) {
+            interpolationPoints = value;  // Update the global interpolationPoints variable
+        });
 
         QLabel *label = new QLabel("Number of Control Points:");
         controlPointCountSpinBox = new QSpinBox(this);
@@ -129,10 +137,6 @@ QMap<QString, double> ShapeInputDialog::getInputs() const {
         values[it.key()] = it.value()->text().toDouble();
     }
     return values;
-}
-
-int ShapeInputDialog::getInterpolationPoints() const {
-    return interpolationPointSpinBox->value();
 }
 
 QVector<QVector<double>> ShapeInputDialog::getBezierControlPoints() const {

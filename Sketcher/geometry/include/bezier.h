@@ -30,7 +30,10 @@ public:
 
     void plot(const std::string &filename) const override;
 
-    vector<vector<double>> calculateBezierCurve(int numSegments) const; 
+    std::vector<double> deCasteljau(const std::vector<std::vector<double>>& points, double t)const;
+
+
+    vector<vector<double>> calculateBezierCurve(int numSegments)const; 
     std::vector<std::vector<double>> calculateBezierCurve() const;
 
     void saveToFile(const string &filename) const override;

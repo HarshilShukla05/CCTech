@@ -40,22 +40,22 @@ public:
 };
 
 
-int binomialCoeff(int n, int k) {
-    if (k < 0 || k > n) {
-        throw invalid_argument("Invalid values for n and k in binomialCoeff");
-    }
+// int binomialCoeff(int n, int k) {
+//     if (k < 0 || k > n) {
+//         throw invalid_argument("Invalid values for n and k in binomialCoeff");
+//     }
 
-    int res = 1;
-    if (k > n - k) {
-        k = n - k; // C(n, k) == C(n, n-k)
-    }
+//     int res = 1;
+//     if (k > n - k) {
+//         k = n - k; // C(n, k) == C(n, n-k)
+//     }
 
-    for (int i = 0; i < k; ++i) {
-        res *= (n - i);
-        res /= (i + 1);
-    }
-    return res;
-}
+//     for (int i = 0; i < k; ++i) {
+//         res *= (n - i);
+//         res /= (i + 1);
+//     }
+//     return res;
+// }
 
 Bezier::Bezier() {
     controlPoints = {};
@@ -65,26 +65,35 @@ void Bezier::addControlPoint(double x, double y, double z) {
     controlPoints.push_back({x, y, z});
 }
 
-vector<vector<double>> Bezier::calculateBezierCurve(int numSegments) const {
-    // int numSegments = ip;
-    numSegments = interpolationPoints; 
-    vector<vector<double>> curve;
-    int n = controlPoints.size() - 1;
+std::vector<double> Bezier::deCasteljau(const std::vector<std::vector<double>>& points, double t)const {
+    std::vector<std::vector<double>> temp = points;
 
-    for (int i = 0; i <= numSegments; i++) {
-        double t = (double)i / numSegments;
-        vector<double> point = {0, 0, 0};
-
-        for (int j = 0; j <= n; j++) {
-            double B = binomialCoeff(n, j) * pow(t, j) * pow(1 - t, n - j);
-            point[0] += B * controlPoints[j][0];
-            point[1] += B * controlPoints[j][1];
-            point[2] += B * controlPoints[j][2];
+    int n = temp.size();
+    while (n > 1) {
+        for (int i = 0; i < n - 1; ++i) {
+            temp[i][0] = (1 - t) * temp[i][0] + t * temp[i + 1][0];
+            temp[i][1] = (1 - t) * temp[i][1] + t * temp[i + 1][1];
+            temp[i][2] = (1 - t) * temp[i][2] + t * temp[i + 1][2];
         }
-        curve.push_back(point);
+        --n;
     }
+
+    return temp[0];  // Final interpolated point
+}
+
+
+vector<vector<double>> Bezier::calculateBezierCurve(int numSegments)const  {
+    vector<vector<double>> curve;
+    if (controlPoints.size() < 2) return curve;
+
+    for (int i = 0; i <= numSegments; ++i) {
+        double t = static_cast<double>(i) / numSegments;
+        curve.push_back(deCasteljau(controlPoints, t));
+    }
+
     return curve;
 }
+
 
 std::vector<std::vector<double>> Bezier::calculateBezierCurve() const {
     return calculateBezierCurve(interpolationPoints);

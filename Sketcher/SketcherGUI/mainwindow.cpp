@@ -81,7 +81,8 @@ void MainWindow::onShapeSelected(const QString &shape) {
             if (pt.size() == 3)
                 bezier->addControlPoint(pt[0], pt[1], pt[2]);
         }
-        bezier->setInterpolationPoints(dialog.getInterpolationPoints());
+        // bezier->setInterpolationPoints(dialog.getInterpolationPoints());
+        bezier->setInterpolationPoints(bezier->getInterpolationPoints());
         bezier->setCurveVertices(bezier->calculateBezierCurve());
         glWidget->setShapeVertices(bezier->getCurveVertices());
         glWidget->setBezierShape(bezier);  // Store pointer in GLWidget
