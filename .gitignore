@@ -1,6 +1,12 @@
 *.o
-.gitignore
 
 .vs/
 ./Sketcher/.vs/
 ./Sketcher/assets/Mustang 13.04.2021 Compressed.obj
+
+/Sketcher/data
+/Sketcher/out
+/Sketcher/build
+/Sketcher/.vscode
+/Sketcher/.qt
+/Sketcher/.vs
