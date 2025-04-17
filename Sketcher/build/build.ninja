@@ -48,7 +48,7 @@ build CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj: CXX_COM
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\Sketcher_autogen\mocs_compilation.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\Sketcher_autogen
 
@@ -56,7 +56,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/ApplicationManager.cpp.obj: CXX_COMPI
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\ApplicationManager.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -64,7 +64,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/FileConverter.cpp.obj: CXX_COMPILER__
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\FileConverter.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -72,7 +72,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/ShapeFactory.cpp.obj: CXX_COMPILER__S
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\ShapeFactory.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -80,7 +80,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/bezier.cpp.obj: CXX_COMPILER__Sketche
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\bezier.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -88,7 +88,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/cuboid.cpp.obj: CXX_COMPILER__Sketche
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\cuboid.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -96,7 +96,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/cylinder.cpp.obj: CXX_COMPILER__Sketc
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\cylinder.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -104,7 +104,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/line3D.cpp.obj: CXX_COMPILER__Sketche
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\line3D.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -112,7 +112,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/plot_utils.cpp.obj: CXX_COMPILER__Ske
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\plot_utils.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -120,7 +120,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/polygon.cpp.obj: CXX_COMPILER__Sketch
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\polygon.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -128,7 +128,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/polyline.cpp.obj: CXX_COMPILER__Sketc
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\polyline.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -136,7 +136,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/sphere.cpp.obj: CXX_COMPILER__Sketche
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\sphere.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -144,7 +144,7 @@ build CMakeFiles/Sketcher.dir/geometry/src/structure.cpp.obj: CXX_COMPILER__Sket
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\structure.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
@@ -152,49 +152,49 @@ build CMakeFiles/Sketcher.dir/geometry/src/triangle.cpp.obj: CXX_COMPILER__Sketc
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Sketcher.dir\geometry\src\triangle.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\geometry\src
 
-build CMakeFiles/Sketcher.dir/SketcherGUI/main.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/main.cpp || cmake_object_order_depends_target_Sketcher
+build CMakeFiles/Sketcher.dir/SketcherGUI/src/main.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/src/main.cpp || cmake_object_order_depends_target_Sketcher
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\main.cpp.obj.d
+  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\src\main.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
-  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI
+  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI\src
 
-build CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/mainwindow.cpp || cmake_object_order_depends_target_Sketcher
+build CMakeFiles/Sketcher.dir/SketcherGUI/src/mainwindow.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.cpp || cmake_object_order_depends_target_Sketcher
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\mainwindow.cpp.obj.d
+  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\src\mainwindow.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
-  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI
+  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI\src
 
-build CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/GLWidget.cpp || cmake_object_order_depends_target_Sketcher
+build CMakeFiles/Sketcher.dir/SketcherGUI/src/GLWidget.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/src/GLWidget.cpp || cmake_object_order_depends_target_Sketcher
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\GLWidget.cpp.obj.d
+  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\src\GLWidget.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
-  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI
+  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI\src
 
-build CMakeFiles/Sketcher.dir/SketcherGUI/ShapeInputDialog.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.cpp || cmake_object_order_depends_target_Sketcher
+build CMakeFiles/Sketcher.dir/SketcherGUI/src/ShapeInputDialog.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/src/ShapeInputDialog.cpp || cmake_object_order_depends_target_Sketcher
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\ShapeInputDialog.cpp.obj.d
+  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\src\ShapeInputDialog.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
-  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI
+  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI\src
 
-build CMakeFiles/Sketcher.dir/SketcherGUI/TransformDialogue.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.cpp || cmake_object_order_depends_target_Sketcher
+build CMakeFiles/Sketcher.dir/SketcherGUI/src/TransformDialogue.cpp.obj: CXX_COMPILER__Sketcher_unscanned_ C$:/Users/Admin/Desktop/New$ folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp || cmake_object_order_depends_target_Sketcher
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\TransformDialogue.cpp.obj.d
+  DEP_FILE = CMakeFiles\Sketcher.dir\SketcherGUI\src\TransformDialogue.cpp.obj.d
   FLAGS = -std=gnu++17
-  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
+  INCLUDES = -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include" -I"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI" -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.0/mingw_64/include/QtOpenGLWidgets
   OBJECT_DIR = CMakeFiles\Sketcher.dir
-  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI
+  OBJECT_FILE_DIR = CMakeFiles\Sketcher.dir\SketcherGUI\src
 
 
 # =============================================================================
@@ -204,7 +204,7 @@ build CMakeFiles/Sketcher.dir/SketcherGUI/TransformDialogue.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable Sketcher.exe
 
-build Sketcher.exe: CXX_EXECUTABLE_LINKER__Sketcher_ CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/ApplicationManager.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/FileConverter.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/ShapeFactory.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/bezier.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/cuboid.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/cylinder.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/line3D.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/plot_utils.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/polygon.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/polyline.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/sphere.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/structure.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/triangle.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/main.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/mainwindow.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/GLWidget.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/ShapeInputDialog.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/TransformDialogue.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6OpenGLWidgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6OpenGL.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a || Sketcher_autogen Sketcher_autogen_timestamp_deps
+build Sketcher.exe: CXX_EXECUTABLE_LINKER__Sketcher_ CMakeFiles/Sketcher.dir/Sketcher_autogen/mocs_compilation.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/ApplicationManager.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/FileConverter.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/ShapeFactory.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/bezier.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/cuboid.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/cylinder.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/line3D.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/plot_utils.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/polygon.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/polyline.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/sphere.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/structure.cpp.obj CMakeFiles/Sketcher.dir/geometry/src/triangle.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/src/main.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/src/mainwindow.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/src/GLWidget.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/src/ShapeInputDialog.cpp.obj CMakeFiles/Sketcher.dir/SketcherGUI/src/TransformDialogue.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6OpenGLWidgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6OpenGL.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a || Sketcher_autogen Sketcher_autogen_timestamp_deps
   LINK_LIBRARIES = C:/Qt/6.9.0/mingw_64/lib/libQt6OpenGLWidgets.a  -lopengl32  -lglu32  C:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.0/mingw_64/lib/libQt6OpenGL.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Sketcher.dir
   POST_BUILD = cd .
@@ -246,7 +246,7 @@ build Sketcher_autogen_timestamp_deps: phony
 #############################################
 # Utility command for Sketcher_autogen
 
-build Sketcher_autogen: phony CMakeFiles/Sketcher_autogen Sketcher_autogen/include/SketcherGUI/ui_mainwindow.h Sketcher_autogen/timestamp Sketcher_autogen/mocs_compilation.cpp Sketcher_autogen_timestamp_deps
+build Sketcher_autogen: phony CMakeFiles/Sketcher_autogen Sketcher_autogen/include/SketcherGUI/src/ui_mainwindow.h Sketcher_autogen/timestamp Sketcher_autogen/mocs_compilation.cpp Sketcher_autogen_timestamp_deps
 
 
 #############################################
@@ -263,7 +263,7 @@ build Sketcher_autogen/timestamp Sketcher_autogen/mocs_compilation.cpp | ${cmake
 #############################################
 # Phony custom command for CMakeFiles\Sketcher_autogen
 
-build CMakeFiles/Sketcher_autogen Sketcher_autogen/include/SketcherGUI/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/Sketcher_autogen ${cmake_ninja_workdir}Sketcher_autogen/include/SketcherGUI/ui_mainwindow.h: phony Sketcher_autogen/timestamp || Sketcher_autogen_timestamp_deps
+build CMakeFiles/Sketcher_autogen Sketcher_autogen/include/SketcherGUI/src/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/Sketcher_autogen ${cmake_ninja_workdir}Sketcher_autogen/include/SketcherGUI/src/ui_mainwindow.h: phony Sketcher_autogen/timestamp || Sketcher_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

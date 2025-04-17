@@ -194,7 +194,7 @@ void GLWidget::paintGL() {
         glEnd();
 
         if (bezierShape) {
-            glColor3f(1.0f, 0.0f, 0.0f); // red control points
+            glColor3f(0.0f, 1.0f, 1.0f); 
             glPointSize(10.0f);
             glBegin(GL_POINTS);
             for (const auto& pt : bezierShape->getControlPoints()) {

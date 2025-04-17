@@ -451,15 +451,15 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
 	C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/CMakeLists.txt \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/GLWidget.cpp \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/GLWidget.h \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.cpp \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.h \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.cpp \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.h \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/main.cpp \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/mainwindow.cpp \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/mainwindow.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/GLWidget.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/ShapeInputDialog.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/TransformDialogue.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/mainwindow.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/GLWidget.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/ShapeInputDialog.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/main.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/CMakeFiles/4.0.0/CMakeCCompiler.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/CMakeFiles/4.0.0/CMakeCXXCompiler.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/CMakeFiles/4.0.0/CMakeRCCompiler.cmake \
@@ -743,5 +743,5 @@ Sketcher_autogen/timestamp: \
 	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake \
 	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake \
 	C:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake \
-	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/mainwindow.ui \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.ui \
 	C:/msys64/mingw64/bin/cmake.exe

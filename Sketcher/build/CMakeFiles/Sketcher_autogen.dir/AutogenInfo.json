@@ -354,27 +354,27 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/GLWidget.h",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/GLWidget.h",
 			"MU",
-			"KI5LX645S3/moc_GLWidget.cpp",
+			"Y633IG2ZBU/moc_GLWidget.cpp",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.h",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/ShapeInputDialog.h",
 			"MU",
-			"KI5LX645S3/moc_ShapeInputDialog.cpp",
+			"Y633IG2ZBU/moc_ShapeInputDialog.cpp",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.h",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/TransformDialogue.h",
 			"MU",
-			"KI5LX645S3/moc_TransformDialogue.cpp",
+			"Y633IG2ZBU/moc_TransformDialogue.cpp",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/mainwindow.h",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/mainwindow.h",
 			"MU",
-			"KI5LX645S3/moc_mainwindow.cpp",
+			"Y633IG2ZBU/moc_mainwindow.cpp",
 			null
 		]
 	],
@@ -408,6 +408,7 @@
 	[
 		"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include",
 		"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/src",
+		"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include",
 		"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI",
 		"C:/Qt/6.9.0/mingw_64/include/QtWidgets",
 		"C:/Qt/6.9.0/mingw_64/include",
@@ -457,27 +458,27 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/GLWidget.cpp",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/GLWidget.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/ShapeInputDialog.cpp",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/ShapeInputDialog.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/TransformDialogue.cpp",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/main.cpp",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/mainwindow.cpp",
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.cpp",
 			"MU",
 			null
 		],

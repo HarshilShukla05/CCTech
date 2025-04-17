@@ -14,6 +14,7 @@ find_package(OpenGL REQUIRED)
 include_directories(
     geometry/include
     geometry/src
+    SketcherGUI/include
     SketcherGUI
 )
 
@@ -21,22 +22,22 @@ include_directories(
 file(GLOB_RECURSE GEOM_SRC geometry/src/*.cpp)
 
 set(GUI_SRC
-    SketcherGUI/main.cpp
-    SketcherGUI/mainwindow.cpp
-    SketcherGUI/GLWidget.cpp
-    SketcherGUI/ShapeInputDialog.cpp
-    SketcherGUI/TransformDialogue.cpp
+    SketcherGUI/src/main.cpp
+    SketcherGUI/src/mainwindow.cpp
+    SketcherGUI/src/GLWidget.cpp
+    SketcherGUI/src/ShapeInputDialog.cpp
+    SketcherGUI/src/TransformDialogue.cpp
 )
 
 set(GUI_HEADERS
-    SketcherGUI/mainwindow.h
-    SketcherGUI/GLWidget.h
-    SketcherGUI/ShapeInputDialog.h
-    SketcherGUI/TransformDialogue.h
+    SketcherGUI/include/mainwindow.h
+    SketcherGUI/include/GLWidget.h
+    SketcherGUI/include/ShapeInputDialog.h
+    SketcherGUI/include/TransformDialogue.h
 )
 
 set(GUI_UI
-    SketcherGUI/mainwindow.ui
+    SketcherGUI/src/mainwindow.ui
 )
 
 add_executable(${PROJECT_NAME}
