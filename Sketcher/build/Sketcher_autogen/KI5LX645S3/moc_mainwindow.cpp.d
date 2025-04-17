@@ -159,6 +159,9 @@ C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/KI5LX6
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
+  C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/Bezier.h \
+  C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/plot_utils.h \
+  C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/shapes.h \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
   C:/msys64/mingw64/include/_mingw_off_t.h \

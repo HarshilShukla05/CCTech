@@ -66,6 +66,8 @@ void Bezier::addControlPoint(double x, double y, double z) {
 }
 
 vector<vector<double>> Bezier::calculateBezierCurve(int numSegments) const {
+    // int numSegments = ip;
+    numSegments = interpolationPoints; 
     vector<vector<double>> curve;
     int n = controlPoints.size() - 1;
 
@@ -74,18 +76,23 @@ vector<vector<double>> Bezier::calculateBezierCurve(int numSegments) const {
         vector<double> point = {0, 0, 0};
 
         for (int j = 0; j <= n; j++) {
-            double bernstein = binomialCoeff(n, j) * pow(t, j) * pow(1 - t, n - j);
-            point[0] += bernstein * controlPoints[j][0];
-            point[1] += bernstein * controlPoints[j][1];
-            point[2] += bernstein * controlPoints[j][2];
+            double B = binomialCoeff(n, j) * pow(t, j) * pow(1 - t, n - j);
+            point[0] += B * controlPoints[j][0];
+            point[1] += B * controlPoints[j][1];
+            point[2] += B * controlPoints[j][2];
         }
         curve.push_back(point);
     }
     return curve;
 }
 
+std::vector<std::vector<double>> Bezier::calculateBezierCurve() const {
+    return calculateBezierCurve(interpolationPoints);
+}
+
+
 void Bezier::plot(const string& filename) const {
-    vector<vector<double>> curve = calculateBezierCurve(100);
+    vector<vector<double>> curve = calculateBezierCurve(20);
     ofstream file(filename);
 
     if (!file) {
@@ -173,7 +180,7 @@ void Bezier::loadFromFile(const string &filename) {
 
 std::vector<std::vector<double>> Bezier::getEdgeLines() const {
     std::vector<std::vector<double>> lines;
-    std::vector<std::vector<double>> curve = calculateBezierCurve(100); // 100 segments for smoothness
+    std::vector<std::vector<double>> curve = calculateBezierCurve(100); // 
 
     for (size_t i = 0; i < curve.size() - 1; ++i) {
         lines.push_back(curve[i]);
@@ -181,4 +188,22 @@ std::vector<std::vector<double>> Bezier::getEdgeLines() const {
     }
 
     return lines;
+}
+
+const std::vector<std::vector<double>>& Bezier::getControlPoints() const {
+    return controlPoints;
+}
+
+void Bezier::setControlPoint(int index, const std::vector<double>& pt) {
+    if (index >= 0 && index < controlPoints.size()) {
+        controlPoints[index] = pt;
+    }
+}
+
+void Bezier::setCurveVertices(const std::vector<std::vector<double>>& verts) {
+    curveVertices = verts;
+}
+
+const std::vector<std::vector<double>>& Bezier::getCurveVertices() const {
+    return curveVertices;
 }

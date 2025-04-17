@@ -51,4 +51,5 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::OpenGL
     Qt6::OpenGLWidgets
     OpenGL::GL
+    glu32
 )

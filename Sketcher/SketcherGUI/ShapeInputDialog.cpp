@@ -23,7 +23,17 @@ ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
     } else if (shapeType == "Sphere") {
         parameters = {"Radius", "Segments"};
     } else if (shapeType == "Bezier") {
+        // parameters = {"Number of interpolated points", "Number of Control Points"}
         // Control point count input
+        QLabel *interpLabel = new QLabel("Interpolation Points:", this);
+        interpolationPointSpinBox = new QSpinBox(this);
+        interpolationPointSpinBox->setMinimum(10);
+        interpolationPointSpinBox->setMaximum(1000);
+        interpolationPointSpinBox->setValue(100); // default value
+        formLayout->addRow(interpLabel, interpolationPointSpinBox);
+
+        
+
         QLabel *label = new QLabel("Number of Control Points:");
         controlPointCountSpinBox = new QSpinBox(this);
         controlPointCountSpinBox->setMinimum(2);
@@ -56,7 +66,7 @@ ShapeInputDialog::ShapeInputDialog(const QString &shapeType, QWidget *parent)
     }
     else if (shapeType == "Polygon") {
         parameters = {"Number of Sides", "Radius"};
-    }
+    } 
     else if (shapeType == "3DLine") {
         parameters = {"X1", "Y1", "Z1", "X2", "Y2", "Z2"};
     }
@@ -119,6 +129,10 @@ QMap<QString, double> ShapeInputDialog::getInputs() const {
         values[it.key()] = it.value()->text().toDouble();
     }
     return values;
+}
+
+int ShapeInputDialog::getInterpolationPoints() const {
+    return interpolationPointSpinBox->value();
 }
 
 QVector<QVector<double>> ShapeInputDialog::getBezierControlPoints() const {

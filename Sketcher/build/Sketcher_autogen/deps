@@ -465,6 +465,7 @@ Sketcher_autogen/timestamp: \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/CMakeFiles/4.0.0/CMakeRCCompiler.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/CMakeFiles/4.0.0/CMakeSystem.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/moc_predefs.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/Bezier.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/src/ApplicationManager.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/src/FileConverter.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/src/ShapeFactory.cpp \

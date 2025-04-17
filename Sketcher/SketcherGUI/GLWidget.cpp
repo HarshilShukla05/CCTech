@@ -1,5 +1,12 @@
+#ifdef _WIN32
+#include <windows.h>   
+#endif
+
 #include "GLWidget.h"
 #include <QDebug>
+#include <GL/gl.h>
+#include <GL/glu.h>
+
 
 GLWidget::GLWidget(QWidget *parent)
     : QOpenGLWidget(parent) {}
@@ -37,13 +44,13 @@ void GLWidget::resizeGL(int w, int h) {
 
     float aspect = float(w) / float(h ? h : 1);
     float fov = 60.0f;        // degrees
-    float near = 1.0f;
-    float far = 1000.0f;
+    float nearPlane = 1.0f;
+    float farPlane = 1000.0f;
 
-    float top = tan(fov * M_PI / 360.0f) * near;
+    float top = tan(fov * M_PI / 360.0f) * nearPlane;
     float right = top * aspect;
 
-    glFrustum(-right, right, -top, top, near, far);
+    glFrustum(-right, right, -top, top, nearPlane, farPlane);
 
     glMatrixMode(GL_MODELVIEW);
 }
@@ -59,15 +66,72 @@ QVector3D GLWidget::computeCenter() const {
     return center;
 }
 
+QVector3D GLWidget::worldToScreen(const std::vector<double>& worldPt) {
+    GLint viewport[4];
+    GLdouble modelview[16], projection[16];
+    glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
+    glGetDoublev(GL_PROJECTION_MATRIX, projection);
+    glGetIntegerv(GL_VIEWPORT, viewport);
+
+    GLdouble wx, wy, wz;
+    gluProject(worldPt[0], worldPt[1], worldPt[2],
+               modelview, projection, viewport,
+               &wx, &wy, &wz);
+
+    // Qt uses Y axis going down, OpenGL uses up, so invert Y
+    return QVector3D(wx, viewport[3] - wy, wz);
+}
+
+
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     lastMousePosition = event->pos();
+
+    if (bezierShape) {
+        lastMousePos = event->pos(); // Needed for drag delta
+        makeCurrent(); // Ensure OpenGL context is active
+
+        float minDist = 0.05f; // Selection threshold
+        selectedControlPointIndex = -1;
+
+        for (int i = 0; i < bezierShape->getControlPoints().size(); ++i) {
+            auto pt = bezierShape->getControlPoints()[i];
+
+            // Convert world to screen
+            QVector3D screenPt = worldToScreen(pt);
+            float dx = event->pos().x() - screenPt.x();
+            float dy = event->pos().y() - screenPt.y();
+
+            if (sqrt(dx * dx + dy * dy) < 10.0) { // pixel threshold
+                selectedControlPointIndex = i;
+                break;
+            }
+        }
+    }
 }
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event) {
-    int dx = event->pos().x() - lastMousePosition.x();
-    int dy = event->pos().y() - lastMousePosition.y();
+    if (selectedControlPointIndex != -1 && bezierShape) {
+        // Calculate world movement based on mouse delta
+        QPoint delta = event->pos() - lastMousePos;
+        lastMousePos = event->pos();
 
-    if (event->buttons() & Qt::LeftButton) {
+        float dx = delta.x() * 0.01f;
+        float dy = -delta.y() * 0.01f; // Invert Y
+
+        auto pt = bezierShape->getControlPoints()[selectedControlPointIndex];
+        pt[0] += dx;
+        pt[1] += dy;
+
+        bezierShape->setControlPoint(selectedControlPointIndex, pt);
+        bezierShape->setCurveVertices(bezierShape->calculateBezierCurve());
+        setShapeVertices(bezierShape->getCurveVertices());
+        update();
+    } 
+    
+    else if (event->buttons() & Qt::LeftButton) {
+        int dx = event->pos().x() - lastMousePosition.x();
+        int dy = event->pos().y() - lastMousePosition.y();
+
         rotationX += dy;
         rotationY += dx;
     }
@@ -76,10 +140,20 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event) {
     update();
 }
 
+void GLWidget::mouseReleaseEvent(QMouseEvent *event) {
+    Q_UNUSED(event);
+    selectedControlPointIndex = -1;
+}
+
 void GLWidget::wheelEvent(QWheelEvent *event) {
     zoom += event->angleDelta().y() / 120.0f; // Adjust zoom level
     update();
 }
+
+void GLWidget::setBezierShape(Bezier* bezier) {
+    bezierShape = bezier;
+}
+
 
 // Paint GL
 void GLWidget::paintGL() {
@@ -118,5 +192,15 @@ void GLWidget::paintGL() {
             glVertex3d(vertex[0], vertex[1], vertex[2]);
         }
         glEnd();
+
+        if (bezierShape) {
+            glColor3f(1.0f, 0.0f, 0.0f); // red control points
+            glPointSize(10.0f);
+            glBegin(GL_POINTS);
+            for (const auto& pt : bezierShape->getControlPoints()) {
+                glVertex3f(pt[0], pt[1], pt[2]);
+            }
+            glEnd();
+        }    
     }
 }

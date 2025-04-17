@@ -74,15 +74,17 @@ void MainWindow::onShapeSelected(const QString &shape) {
     else if (shape == "Bezier") {
         ShapeInputDialog dialog(shape, this);
         if (dialog.exec() == QDialog::Accepted) {
+            // int ip = values["Number of Interpolated Points"]
             QList<QList<double>> controlPoints = dialog.getBezierControlPoints();
-            Bezier bezier;
-            for (const QList<double> &pt : controlPoints) {
-                if (pt.size() == 3)
-                    bezier.addControlPoint(pt[0], pt[1], pt[2]);
-            }
-    
-            std::vector<std::vector<double>> curve = bezier.calculateBezierCurve(100);
-            glWidget->setShapeVertices(curve);
+            Bezier* bezier = new Bezier();  // use a pointer so it survives after the function
+        for (const QList<double> &pt : controlPoints) {
+            if (pt.size() == 3)
+                bezier->addControlPoint(pt[0], pt[1], pt[2]);
+        }
+        bezier->setInterpolationPoints(dialog.getInterpolationPoints());
+        bezier->setCurveVertices(bezier->calculateBezierCurve());
+        glWidget->setShapeVertices(bezier->getCurveVertices());
+        glWidget->setBezierShape(bezier);  // Store pointer in GLWidget
         }
     } 
     else if (shape == "Polygon") {
