@@ -10,16 +10,16 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QComboBox" name="shapeComboBox">
-        <item><property name="text"><string>Select shape</string></property></item>
-        <item><property name="text"><string>Cuboid</string></property></item>
-        <item><property name="text"><string>Sphere</string></property></item>
-        <item><property name="text"><string>Cylinder</string></property></item>
-        <item><property name="text"><string>Polygon</string></property></item>
-        <item><property name="text"><string>Bezier</string></property></item>
-        <item><property name="text"><string>Polyline</string></property></item>
-        <item><property name="text"><string>3DLine</string></property></item>
+      <item><property name="text"><string>Select shape</string></property></item>
+      <item><property name="text"><string>Cuboid</string></property></item>
+      <item><property name="text"><string>Sphere</string></property></item>
+      <item><property name="text"><string>Cylinder</string></property></item>
+      <item><property name="text"><string>Polygon</string></property></item>
+      <item><property name="text"><string>Bezier</string></property></item>
+      <item><property name="text"><string>Polyline</string></property></item>
+      <item><property name="text"><string>3DLine</string></property></item>
      </widget>
-    </item> 
+    </item>
     <item>
      <widget class="QWidget" name="openGLContainer" native="true">
       <property name="sizePolicy">
@@ -45,6 +45,11 @@
       <item>
        <widget class="QPushButton" name="transformButton">
         <property name="text"><string>Transform</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="openSketchWindowButton">
+        <property name="text"><string>2D Sketch Editor</string></property>
        </widget>
       </item>
      </layout>

@@ -27,6 +27,9 @@ set(GUI_SRC
     SketcherGUI/src/GLWidget.cpp
     SketcherGUI/src/ShapeInputDialog.cpp
     SketcherGUI/src/TransformDialogue.cpp
+    SketcherGUI/src/SketchGLWidget.cpp
+    SketcherGUI/src/SketchWindow.cpp
+    SketcherGUI/src/polygon_boolean.cpp
 )
 
 set(GUI_HEADERS
@@ -34,6 +37,9 @@ set(GUI_HEADERS
     SketcherGUI/include/GLWidget.h
     SketcherGUI/include/ShapeInputDialog.h
     SketcherGUI/include/TransformDialogue.h
+    SketcherGUI/include/SketchGLWidget.h
+    SketcherGUI/include/SketchWindow.h
+    SketcherGUI/include/polygon_boolean.h
 )
 
 set(GUI_UI

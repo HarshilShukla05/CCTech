@@ -33,6 +33,7 @@ public:
     QPushButton *loadFileButton;
     QPushButton *saveFileButton;
     QPushButton *transformButton;
+    QPushButton *openSketchWindowButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -85,6 +86,11 @@ public:
 
         bottomButtonLayout->addWidget(transformButton);
 
+        openSketchWindowButton = new QPushButton(centralwidget);
+        openSketchWindowButton->setObjectName("openSketchWindowButton");
+
+        bottomButtonLayout->addWidget(openSketchWindowButton);
+
 
         verticalLayout->addLayout(bottomButtonLayout);
 
@@ -117,6 +123,7 @@ public:
         loadFileButton->setText(QCoreApplication::translate("MainWindow", "Load File", nullptr));
         saveFileButton->setText(QCoreApplication::translate("MainWindow", "Save File", nullptr));
         transformButton->setText(QCoreApplication::translate("MainWindow", "Transform", nullptr));
+        openSketchWindowButton->setText(QCoreApplication::translate("MainWindow", "2D Sketch Editor", nullptr));
     } // retranslateUi
 
 };

@@ -22,6 +22,7 @@ private slots:
     void applyTransformations(const std::vector<std::vector<double>> &verts);
     void on_loadFileButton_clicked();
     void on_saveFileButton_clicked();
+    void on_openSketchWindowButton_clicked();
 
     
     void setBezierShape(Bezier* bezier) { bezierShape = bezier; update(); }

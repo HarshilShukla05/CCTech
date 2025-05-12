@@ -12,6 +12,7 @@
 #include "TransformDialogue.h"
 #include "plot_utils.h"
 #include "FileConverter.h"
+#include "SketchWindow.h"
 
 
 #include <QVBoxLayout>
@@ -187,4 +188,10 @@ void MainWindow::on_saveFileButton_clicked() {
 void MainWindow::applyTransformations(const std::vector<std::vector<double>> &verts) {
     glWidget->setShapeVertices(verts);
     glWidget->update();
+}
+
+
+void MainWindow::on_openSketchWindowButton_clicked() {
+    SketchWindow* window = new SketchWindow(this);
+    window->show();
 }
