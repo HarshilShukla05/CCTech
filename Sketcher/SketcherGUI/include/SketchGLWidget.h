@@ -15,7 +15,7 @@ public:
     void finishCurrentShape();
     void applyUnion();
     void applyIntersection();
-    void applySubtraction();
+    void applySubtraction(bool isAB);
 
     std::vector<std::vector<QPointF>> getPolygons() const;
 

@@ -1,25 +1,29 @@
 #include "polygon_boolean.h"
 #include <QDebug>
+#include <algorithm>
 
 using namespace std;
 
 using Vertex = PolygonBoolean::GHVertex;
 
-vector<Vertex*> PolygonBoolean::buildLinkedList(const vector<QPointF>& polygon) {
-    vector<Vertex*> list;
-    for (const QPointF& pt : polygon) list.push_back(new Vertex(pt));
-    int n = list.size();
-    for (int i = 0; i < n; ++i) {
-        list[i]->next = list[(i + 1) % n];
-        list[i]->prev = list[(i + n - 1) % n];
+// Helper function to check if a point is inside a polygon
+bool pointInPolygon(const QPointF& point, const vector<QPointF>& polygon) {
+    int count = 0;
+    for (size_t i = 0; i < polygon.size(); ++i) {
+        QPointF a = polygon[i];
+        QPointF b = polygon[(i + 1) % polygon.size()];
+        if ((a.y() > point.y()) != (b.y() > point.y())) {
+            double intersectX = (b.x() - a.x()) * (point.y() - a.y()) / (b.y() - a.y()) + a.x();
+            if (point.x() < intersectX) {
+                count++;
+            }
+        }
     }
-    return list;
+    return (count % 2) == 1;
 }
 
-bool PolygonBoolean::segmentsIntersect(const QPointF& a1, const QPointF& a2,
-                                       const QPointF& b1, const QPointF& b2,
-                                       QPointF& out)
-{
+// Helper function to find intersection of two line segments
+bool segmentsIntersect(const QPointF& a1, const QPointF& a2, const QPointF& b1, const QPointF& b2, QPointF& out) {
     double dx1 = a2.x() - a1.x();
     double dy1 = a2.y() - a1.y();
     double dx2 = b2.x() - b1.x();
@@ -37,253 +41,239 @@ bool PolygonBoolean::segmentsIntersect(const QPointF& a1, const QPointF& a2,
     return true;
 }
 
-bool PolygonBoolean::findIntersections(vector<Vertex*>& subj, vector<Vertex*>& clip) {
-    bool found = false;
-    qDebug() << "Entering findIntersections()";
-    Vertex* aStart = subj[0];
-    Vertex* a = aStart;
+// Helper function to add intersection points and sort them
+void addAndSortIntersections(vector<QPointF>& result, const QPointF& point) {
+    if (find(result.begin(), result.end(), point) == result.end()) {
+        result.push_back(point);
+    }
+}
 
-    do {
-        if (a->isIntersection) {
-            a = a->next;
-            continue;
-        }
+// Helper function to split edges at intersection points
+vector<QPointF> splitEdges(const vector<QPointF>& polygon, const vector<QPointF>& intersections) {
+    vector<QPointF> result;
+    for (size_t i = 0; i < polygon.size(); ++i) {
+        QPointF a = polygon[i];
+        QPointF b = polygon[(i + 1) % polygon.size()];
+        result.push_back(a);
 
-        Vertex* bStart = clip[0];
-        Vertex* b = bStart;
-
-        do {
-            if (b->isIntersection) {
-                b = b->next;
-                continue;
+        for (const auto& inter : intersections) {
+            QPointF dummy;
+            if (segmentsIntersect(a, b, inter, inter, dummy)) {
+                result.push_back(inter);
             }
+        }
+    }
 
+    // Sort points along each edge
+    sort(result.begin(), result.end(), [](const QPointF& p1, const QPointF& p2) {
+        return p1.x() < p2.x() || (p1.x() == p2.x() && p1.y() < p2.y());
+    });
+
+    return result;
+}
+
+namespace {
+    // Helper function to compare two QPointF objects with a tolerance
+    bool pointFuzzyEqual(const QPointF& p1, const QPointF& p2, double tolerance = 1e-6) {
+        return std::abs(p1.x() - p2.x()) < tolerance && std::abs(p1.y() - p2.y()) < tolerance;
+    }
+}
+
+// Refined intersection implementation
+vector<QPointF> PolygonBoolean::intersect(const vector<QPointF>& poly1, const vector<QPointF>& poly2) {
+    vector<QPointF> intersections;
+
+    // Find all intersection points
+    for (size_t i = 0; i < poly1.size(); ++i) {
+        QPointF a1 = poly1[i];
+        QPointF a2 = poly1[(i + 1) % poly1.size()];
+        for (size_t j = 0; j < poly2.size(); ++j) {
+            QPointF b1 = poly2[j];
+            QPointF b2 = poly2[(j + 1) % poly2.size()];
             QPointF inter;
-            if (segmentsIntersect(a->point, a->next->point, b->point, b->next->point, inter)) {
-                Vertex* i1 = new Vertex(inter);
-                Vertex* i2 = new Vertex(inter);
-                i1->isIntersection = i2->isIntersection = true;
-                i1->neighbor = i2;
-                i2->neighbor = i1;
-
-                // insert into subject polygon
-                Vertex* oldNext = a->next;
-                a->next = i1;
-                i1->prev = a;
-                i1->next = oldNext;
-                oldNext->prev = i1;
-
-                // insert into clip polygon
-                Vertex* oldNextB = b->next;
-                b->next = i2;
-                i2->prev = b;
-                i2->next = oldNextB;
-                oldNextB->prev = i2;
-
-                qDebug() << "Inserted i1:" << i1->point << " prev:" << i1->prev->point << " next:" << i1->next->point;
-                
-                found = true;
+            if (segmentsIntersect(a1, a2, b1, b2, inter)) {
+                addAndSortIntersections(intersections, inter);
             }
-
-            b = b->next;
-        } while (b != bStart);
-
-        a = a->next;
-    } while (a != aStart);
-
-    qDebug() << "Exiting findIntersections(), found:" << found;
-    return found;
-}
-
-void PolygonBoolean::classifyIntersections(std::vector<Vertex*>& subj, std::vector<Vertex*>& clip) {
-    for (Vertex* v : subj) {
-        if (v->isIntersection && !v->visited) {
-            // Get mid-point before this intersection to use as test point
-            QPointF mid = (v->prev->point + v->point) / 2;
-
-            // Count crossings on clip polygon to determine inside/outside
-            int count = 0;
-            for (Vertex* c = clip[0];; c = c->next) {
-                QPointF a = c->point;
-                QPointF b = c->next->point;
-                if (((a.y() > mid.y()) != (b.y() > mid.y())) &&
-                    (mid.x() < (b.x() - a.x()) * (mid.y() - a.y()) / (b.y() - a.y()) + a.x())) {
-                    count++;
-                }
-                if (c->next == clip[0]) break;
-            }
-
-            v->isEntry = (count % 2 == 0);  // Outside → Entry
-            qDebug() << "Intersection at" << v->point << "classified as Entry=" << v->isEntry;
         }
     }
-    for (Vertex* v : subj) {
-    if (v->isIntersection)
-        qDebug() << "Intersection:" << v->point
-                 << " Entry:" << v->isEntry
-                 << " Visited:" << v->visited;
+
+    // Add points from poly1 inside poly2
+    for (const auto& point : poly1) {
+        if (pointInPolygon(point, poly2)) {
+            addAndSortIntersections(intersections, point);
+        }
+    }
+
+    // Add points from poly2 inside poly1
+    for (const auto& point : poly2) {
+        if (pointInPolygon(point, poly1)) {
+            addAndSortIntersections(intersections, point);
+        }
+    }
+
+    // Sort points in clockwise order
+    QPointF centroid(0, 0);
+    for (const auto& point : intersections) {
+        centroid += point;
+    }
+    centroid /= intersections.size();
+
+    sort(intersections.begin(), intersections.end(), [&centroid](const QPointF& a, const QPointF& b) {
+        double angleA = atan2(a.y() - centroid.y(), a.x() - centroid.x());
+        double angleB = atan2(b.y() - centroid.y(), b.x() - centroid.x());
+        return angleA < angleB;
+    });
+
+    return intersections;
 }
 
+// Refined union implementation
+vector<QPointF> PolygonBoolean::unionPolygons(const vector<QPointF>& poly1, const vector<QPointF>& poly2) {
+    vector<QPointF> intersections;
+
+    // Find all intersection points
+    for (size_t i = 0; i < poly1.size(); ++i) {
+        QPointF a1 = poly1[i];
+        QPointF a2 = poly1[(i + 1) % poly1.size()];
+        for (size_t j = 0; j < poly2.size(); ++j) {
+            QPointF b1 = poly2[j];
+            QPointF b2 = poly2[(j + 1) % poly2.size()];
+            QPointF inter;
+            if (segmentsIntersect(a1, a2, b1, b2, inter)) {
+                addAndSortIntersections(intersections, inter);
+            }
+        }
+    }
+
+    // Split edges at intersection points
+    vector<QPointF> splitPoly1 = splitEdges(poly1, intersections);
+    vector<QPointF> splitPoly2 = splitEdges(poly2, intersections);
+
+    // Construct union polygon
+    vector<QPointF> result;
+
+    // Add points from poly1 that are outside poly2
+    for (const auto& point : splitPoly1) {
+        if (!pointInPolygon(point, poly2)) {
+            result.push_back(point);
+        }
+    }
+
+    // Add points from poly2 that are outside poly1
+    for (const auto& point : splitPoly2) {
+        if (!pointInPolygon(point, poly1)) {
+            result.push_back(point);
+        }
+    }
+
+    // Add intersection points
+    for (const auto& inter : intersections) {
+        result.push_back(inter);
+    }
+
+    // Sort points in clockwise order
+    QPointF centroid(0, 0);
+    for (const auto& point : result) {
+        centroid += point;
+    }
+    centroid /= result.size();
+
+    sort(result.begin(), result.end(), [&centroid](const QPointF& a, const QPointF& b) {
+        double angleA = atan2(a.y() - centroid.y(), a.x() - centroid.x());
+        double angleB = atan2(b.y() - centroid.y(), b.x() - centroid.x());
+        return angleA < angleB;
+    });
+
+    // Remove duplicate points
+    result.erase(unique(result.begin(), result.end(), [](const QPointF& a, const QPointF& b) {
+        return qFuzzyCompare(a.x(), b.x()) && qFuzzyCompare(a.y(), b.y());
+    }), result.end());
+
+    return result;
 }
 
+// Refined subtraction implementation
+std::vector<QPointF> PolygonBoolean::subtractPolygons(const std::vector<QPointF>& polyA, const std::vector<QPointF>& polyB) {
+    std::vector<QPointF> intersections;
 
-std::vector<QPointF> PolygonBoolean::collectResult(std::vector<Vertex*>& subj) {
+    // 1. Find intersection points
+    for (size_t i = 0; i < polyA.size(); ++i) {
+        QPointF a1 = polyA[i];
+        QPointF a2 = polyA[(i + 1) % polyA.size()];
+        for (size_t j = 0; j < polyB.size(); ++j) {
+            QPointF b1 = polyB[j];
+            QPointF b2 = polyB[(j + 1) % polyB.size()];
+            QPointF inter;
+            if (segmentsIntersect(a1, a2, b1, b2, inter)) {
+                addAndSortIntersections(intersections, inter);
+            }
+        }
+    }
+
+    // 2. Start building the result path
     std::vector<QPointF> result;
 
-    for (Vertex* start : subj) {
-        if (!start || !start->isIntersection || start->visited || !start->isEntry)
-            continue;
-
-        qDebug() << "Starting loop from intersection:" << start->point;
-
-        Vertex* curr = start;
-        int safety = 0;
-        bool failed = false;
-
-        do {
-            if (!curr || safety++ > 10000) {
-                qDebug() << "Aborting: loop safety triggered or null pointer.";
-                failed = true;
-                break;
-            }
-
-            qDebug() << "Visit" << curr->point;
-            result.push_back(curr->point);
-            curr->visited = true;
-
-            // On intersection: jump to neighbor polygon
-            if (curr->isIntersection && curr->neighbor && !curr->neighbor->visited) {
-                curr = curr->neighbor;
-                curr->visited = true;
-                qDebug() << "Jump to neighbor:" << curr->point;
-            }
-
-            curr = curr->next;
-
-        } while (curr && curr != start);
-
-        if (!failed && !result.empty()) {
-            qDebug() << "Collected loop with" << result.size() << "points.";
-        
-            qDebug() << "Candidate start vertex:" << start->point
-                     << " isIntersection:" << start->isIntersection
-                     << " isVisited:" << start->visited
-                     << " isEntry:" << start->isEntry;
-            break;  // Only one contour for now
+    // Step 2a: Find a starting point in A that is NOT in B
+    QPointF start;
+    bool foundStart = false;
+    for (const auto& pt : polyA) {
+        if (!pointInPolygon(pt, polyB)) {
+            start = pt;
+            foundStart = true;
+            break;
         }
     }
-
-    if (result.empty()) {
-        qDebug() << "No valid intersection loop could be constructed.";
+    if (!foundStart) {
+        // A is fully inside B — result is empty
+        return {};
     }
+
+    // 3. Traverse A starting at 'start', and follow boundary, switch at intersections
+    bool insideB = false;
+    bool started = false;
+    size_t idx = 0;
+    while (idx < polyA.size()) {
+        QPointF curr = polyA[idx];
+        QPointF next = polyA[(idx + 1) % polyA.size()];
+        QPointF mid((curr.x() + next.x()) / 2.0, (curr.y() + next.y()) / 2.0);
+
+        if (!started && pointFuzzyEqual(curr, start)) {
+            started = true;
+        }
+
+        if (started) {
+            if (!pointInPolygon(mid, polyB)) {
+                result.push_back(curr);
+            } else {
+                // Entering B, skip until we find an edge outside again
+                while (pointInPolygon(mid, polyB) && idx < polyA.size()) {
+                    idx++;
+                    curr = polyA[idx % polyA.size()];
+                    next = polyA[(idx + 1) % polyA.size()];
+                    mid = QPointF((curr.x() + next.x()) / 2.0, (curr.y() + next.y()) / 2.0);
+                }
+                // Add the first outside point again
+                result.push_back(curr);
+            }
+        }
+
+        idx++;
+        if (started && pointFuzzyEqual(polyA[idx % polyA.size()], start)) break;
+    }
+
+    // 4. Close polygon if needed
+    if (!result.empty() && !qFuzzyCompare(result.front(), result.back())) {
+        result.push_back(result.front());
+    }
+
+    // 5. Remove duplicates
+    result.erase(std::unique(result.begin(), result.end(), [](const QPointF& a, const QPointF& b) {
+        return qFuzzyCompare(a.x(), b.x()) && qFuzzyCompare(a.y(), b.y());
+    }), result.end());
 
     return result;
 }
 
 
 
-vector<QPointF> PolygonBoolean::intersect(const vector<QPointF>& poly1,
-                                               const vector<QPointF>& poly2)
-{
-    auto subj = buildLinkedList(poly1);
-    auto clip = buildLinkedList(poly2);
-
-    if (!findIntersections(subj, clip)) return {}; // no intersection
-    classifyIntersections(subj, clip);
-    return collectResult(subj);
-}
-
-
-//UNION
-
-vector<QPointF> PolygonBoolean::unionPolygons(const vector<QPointF>& poly1,
-                                              const vector<QPointF>& poly2)
-{
-    auto subj = buildLinkedList(poly1);
-    auto clip = buildLinkedList(poly2);
-
-    if (!findIntersections(subj, clip)) {
-        // No intersections → union is just both polygons together
-        vector<QPointF> result = poly1;
-        result.insert(result.end(), poly2.begin(), poly2.end());
-        return result;
-    }
-
-    classifyIntersectionsForUnion(subj, clip);
-    return collectUnionResult(subj);
-}
-
-void PolygonBoolean::classifyIntersectionsForUnion(std::vector<Vertex*>& subj, std::vector<Vertex*>& clip) {
-    for (Vertex* v : subj) {
-        if (v->isIntersection && !v->visited) {
-            QPointF mid = (v->prev->point + v->point) / 2;
-
-            int count = 0;
-            for (Vertex* c = clip[0];; c = c->next) {
-                QPointF a = c->point;
-                QPointF b = c->next->point;
-                if (((a.y() > mid.y()) != (b.y() > mid.y())) &&
-                    (mid.x() < (b.x() - a.x()) * (mid.y() - a.y()) / (b.y() - a.y()) + a.x())) {
-                    count++;
-                }
-                if (c->next == clip[0]) break;
-            }
-
-            // For UNION: Entry if we are inside the other polygon
-            v->isEntry = (count % 2 == 1);
-            qDebug() << "[Union] Intersection at" << v->point << "classified as Entry=" << v->isEntry;
-        }
-    }
-}
-
-std::vector<QPointF> PolygonBoolean::collectUnionResult(std::vector<Vertex*>& subj) {
-    std::vector<QPointF> result;
-
-    for (Vertex* start : subj) {
-        if (!start || !start->isIntersection || start->visited)
-            continue;
-
-        // For debugging:
-        qDebug() << "[Union] Candidate start vertex:" << start->point
-                 << " isIntersection:" << start->isIntersection
-                 << " isEntry:" << start->isEntry
-                 << " visited:" << start->visited;
-
-        Vertex* curr = start;
-        std::vector<QPointF> tempResult;
-        int safety = 0;
-
-        do {
-            if (!curr || safety++ > 10000) {
-                qDebug() << "[Union] Loop broken due to safety limit.";
-                tempResult.clear();
-                break;
-            }
-
-            tempResult.push_back(curr->point);
-            curr->visited = true;
-
-            if (curr->isIntersection && curr->neighbor && !curr->neighbor->visited) {
-                qDebug() << "[Union] Jumping to neighbor at:" << curr->neighbor->point;
-                curr = curr->neighbor;
-                curr->visited = true;
-            }
-
-            curr = curr->next;
-
-        } while (curr && curr != start);
-
-        if (!tempResult.empty()) {
-            qDebug() << "[Union] Collected loop with" << tempResult.size() << " points.";
-            result = tempResult;
-            break;  // return first valid loop
-        }
-    }
-
-    if (result.empty()) {
-        qDebug() << "[Union] No valid union loop constructed.";
-    }
-
-    return result;
-}
 

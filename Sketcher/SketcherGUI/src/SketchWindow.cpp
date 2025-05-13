@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QInputDialog>
 
 SketchWindow::SketchWindow(QWidget* parent)
     : QWidget(parent) {
@@ -37,4 +38,16 @@ SketchWindow::SketchWindow(QWidget* parent)
 void SketchWindow::onFinishShape() { sketchWidget->finishCurrentShape(); }
 void SketchWindow::onUnion() { sketchWidget->applyUnion(); }
 void SketchWindow::onIntersection() { sketchWidget->applyIntersection(); }
-void SketchWindow::onSubtraction() { sketchWidget->applySubtraction(); }
+void SketchWindow::onSubtraction() {
+    QStringList options = { "A - B", "B - A" };
+    bool ok;
+    QString choice = QInputDialog::getItem(this, "Subtraction Operation", 
+                                           "Choose operation:", options, 0, false, &ok);
+    if (ok && !choice.isEmpty()) {
+        if (choice == "A - B") {
+            sketchWidget->applySubtraction(true);  // A - B
+        } else if (choice == "B - A") {
+            sketchWidget->applySubtraction(false); // B - A
+        }
+    }
+}
