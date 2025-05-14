@@ -160,6 +160,7 @@ C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/SketchGLWi
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/QColor
  mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/QMouseEvent
  mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/QSurfaceFormat
  mdp:C:/Qt/6.9.0/mingw_64/include/QtGui/QTransform

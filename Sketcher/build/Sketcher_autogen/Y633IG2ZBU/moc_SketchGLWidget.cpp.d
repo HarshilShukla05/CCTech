@@ -143,6 +143,7 @@ C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/Y633IG
   C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.9.0/mingw_64/include/QtGui/QColor \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QMouseEvent \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QSurfaceFormat \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QTransform \

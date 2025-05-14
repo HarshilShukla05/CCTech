@@ -3,6 +3,7 @@
 
 #include <QOpenGLWidget>
 #include <QMouseEvent>
+#include <QColor>
 #include <vector>
 #include <QPointF>
 
@@ -18,6 +19,12 @@ public:
     void applySubtraction(bool isAB);
 
     std::vector<std::vector<QPointF>> getPolygons() const;
+    
+    // int getSelectedRegionIndex() const { return selectedRegionIndex; }
+    // std::vector<QPointF> getSelectedPolygon() const;
+
+    // Method to clear the result
+    void clearResult();
 
 protected:
     void initializeGL() override;
@@ -28,6 +35,12 @@ protected:
 private:
     std::vector<QPointF> currentPoints;
     std::vector<std::vector<QPointF>> shapes;
+
+    // Store the shaded region for visualization
+    std::vector<QPointF> shadedRegion;
+
+    // Store the color of the result
+    QColor resultColor;
 };
 
 #endif // SKETCHGLWIDGET_H

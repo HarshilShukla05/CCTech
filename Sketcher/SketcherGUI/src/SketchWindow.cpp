@@ -14,17 +14,20 @@ SketchWindow::SketchWindow(QWidget* parent)
     QPushButton* unionBtn = new QPushButton("Union");
     QPushButton* intersectBtn = new QPushButton("Intersection");
     QPushButton* subtractBtn = new QPushButton("Subtraction");
+    QPushButton* clearResultBtn = new QPushButton("Clear Result");  // New button
 
     connect(finishShapeBtn, &QPushButton::clicked, this, &SketchWindow::onFinishShape);
     connect(unionBtn, &QPushButton::clicked, this, &SketchWindow::onUnion);
     connect(intersectBtn, &QPushButton::clicked, this, &SketchWindow::onIntersection);
     connect(subtractBtn, &QPushButton::clicked, this, &SketchWindow::onSubtraction);
+    connect(clearResultBtn, &QPushButton::clicked, sketchWidget, &SketchGLWidget::clearResult);  // Connect to clearResult
 
     QHBoxLayout* buttons = new QHBoxLayout;
     buttons->addWidget(finishShapeBtn);
     buttons->addWidget(unionBtn);
     buttons->addWidget(intersectBtn);
     buttons->addWidget(subtractBtn);
+    buttons->addWidget(clearResultBtn);  // Add the new button
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(sketchWidget);
