@@ -1,0 +1,3 @@
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/CMakeFiles/Sketcher.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/CMakeFiles/ALL_BUILD.dir
+C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/CMakeFiles/ZERO_CHECK.dir

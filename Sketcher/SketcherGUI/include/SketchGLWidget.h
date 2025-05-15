@@ -39,6 +39,7 @@ protected:
     void resizeGL(int w, int h) override;
     void paintGL() override;
     void mousePressEvent(QMouseEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
 
 private:
     struct Geometry {
@@ -80,6 +81,9 @@ private:
     void drawBezierCurve(const CurveSegment& bezier, QPainter& painter);
     std::vector<QPointF> flattenBezier(const CurveSegment& bez, int segments);
     void intersectBezierRecursive(const CurveSegment& a, const CurveSegment& b, std::vector<QPointF>& intersections, int depth = 0);
+
+    int hoveredIntersectionIndex = -1;
+
 };
 
 // bool pointInPolygon(const QPointF& point, const std::vector<QPointF>& polygon);

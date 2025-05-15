@@ -16,9 +16,12 @@
 #include <GL/glu.h>
 
 SketchGLWidget::SketchGLWidget(QWidget* parent)
-    : QOpenGLWidget(parent), selectedRegionIndex(-1), resultColor(Qt::transparent), bezierMode(false) {
-    resultRegions.clear();
-}
+    : QOpenGLWidget(parent), selectedRegionIndex(-1), resultColor(Qt::transparent), bezierMode(false), hoveredIntersectionIndex(-1) 
+    {
+        setMouseTracking(true);
+        setFocusPolicy(Qt::StrongFocus);
+        resultRegions.clear();
+    }
 
 void SketchGLWidget::initializeGL() {
     QOpenGLContext::currentContext()->functions()->initializeOpenGLFunctions();
@@ -35,7 +38,7 @@ void SketchGLWidget::paintGL() {
     f->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
 
     // Draw existing curves
     painter.setPen(QPen(Qt::black, 2));
@@ -73,10 +76,32 @@ void SketchGLWidget::paintGL() {
         }
     }
 
-    // Draw intersection points
-    painter.setBrush(Qt::green);
-    for (const auto& pt : bezierIntersections) {
-        painter.drawEllipse(pt, 3, 3);
+    // Draw intersection points with hover effect and labels
+    painter.setPen(Qt::NoPen);
+    for (size_t i = 0; i < bezierIntersections.size(); ++i) {
+        const QPointF& pt = bezierIntersections[i];
+        bool isHovered = (static_cast<int>(i) == hoveredIntersectionIndex);
+        int radius = isHovered ? 10 : 6;
+
+        // Red circle
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(Qt::red);
+        painter.drawEllipse(pt, radius, radius);
+
+        // White crosshair
+        painter.setPen(QPen(Qt::white, isHovered ? 3 : 2));
+        painter.drawLine(pt.x() - radius, pt.y(), pt.x() + radius, pt.y());
+        painter.drawLine(pt.x(), pt.y() - radius, pt.x(), pt.y() + radius);
+
+        // Label
+        QFont font = painter.font();
+        font.setPointSize(isHovered ? 10 : 8);
+        font.setBold(isHovered);
+        painter.setFont(font);
+        painter.setPen(Qt::black);
+
+        QPointF offset(radius + 6, -radius - 4);
+        painter.drawText(pt + offset, QString::number(i + 1));
     }
 
     // Draw existing polygon shapes
@@ -134,6 +159,7 @@ void SketchGLWidget::paintGL() {
 }
 
 
+
 std::vector<QVector3D> extrudedVertices; // Declare extruded vertices
 std::vector<unsigned int> extrudedIndices; // Declare extruded indices
 
@@ -188,6 +214,20 @@ void SketchGLWidget::mousePressEvent(QMouseEvent* event) {
         }
         update();
     }
+}
+
+void SketchGLWidget::mouseMoveEvent(QMouseEvent* event) {
+    QPointF mousePos = event->pos();
+    hoveredIntersectionIndex = -1;
+    const double hoverRadius = 10.0; // pixels
+
+    for (size_t i = 0; i < bezierIntersections.size(); ++i) {
+        if (QLineF(mousePos, bezierIntersections[i]).length() <= hoverRadius) {
+            hoveredIntersectionIndex = static_cast<int>(i);
+            break;
+        }
+    }
+    update(); // repaint with hover effect
 }
 
 
