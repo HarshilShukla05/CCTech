@@ -1,11 +1,11 @@
 #ifndef SKETCHWINDOW_H
 #define SKETCHWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 class SketchGLWidget;
 
-class SketchWindow : public QWidget {
+class SketchWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -18,7 +18,7 @@ private slots:
     void onSubtraction();
 
 private:
-    SketchGLWidget* sketchWidget;
+    SketchGLWidget* sketchGLWidget; // Corrected variable name
 };
 
 #endif // SKETCHWINDOW_H

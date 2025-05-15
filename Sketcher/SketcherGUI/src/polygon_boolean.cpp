@@ -1,6 +1,9 @@
 #include "polygon_boolean.h"
 #include <QDebug>
 #include <algorithm>
+#include "clipper.hpp"
+
+using namespace ClipperLib;
 
 using namespace std;
 
@@ -192,88 +195,27 @@ vector<QPointF> PolygonBoolean::unionPolygons(const vector<QPointF>& poly1, cons
     return result;
 }
 
-// Refined subtraction implementation
+//  subtraction implementation through Clipper library
 std::vector<QPointF> PolygonBoolean::subtractPolygons(const std::vector<QPointF>& polyA, const std::vector<QPointF>& polyB) {
-    std::vector<QPointF> intersections;
+    Path subject, clip;
+    for (const QPointF& pt : polyA)
+        subject << IntPoint(static_cast<cInt>(pt.x() * 1000), static_cast<cInt>(pt.y() * 1000));
+    for (const QPointF& pt : polyB)
+        clip << IntPoint(static_cast<cInt>(pt.x() * 1000), static_cast<cInt>(pt.y() * 1000));
 
-    // 1. Find intersection points
-    for (size_t i = 0; i < polyA.size(); ++i) {
-        QPointF a1 = polyA[i];
-        QPointF a2 = polyA[(i + 1) % polyA.size()];
-        for (size_t j = 0; j < polyB.size(); ++j) {
-            QPointF b1 = polyB[j];
-            QPointF b2 = polyB[(j + 1) % polyB.size()];
-            QPointF inter;
-            if (segmentsIntersect(a1, a2, b1, b2, inter)) {
-                addAndSortIntersections(intersections, inter);
-            }
-        }
-    }
+    Clipper c;
+    c.AddPath(subject, ptSubject, true);
+    c.AddPath(clip, ptClip, true);
+    Paths solution;
+    c.Execute(ctDifference, solution, pftNonZero, pftNonZero);
 
-    // 2. Start building the result path
     std::vector<QPointF> result;
-
-    // Step 2a: Find a starting point in A that is NOT in B
-    QPointF start;
-    bool foundStart = false;
-    for (const auto& pt : polyA) {
-        if (!pointInPolygon(pt, polyB)) {
-            start = pt;
-            foundStart = true;
-            break;
-        }
+    if (!solution.empty()) {
+        for (const IntPoint& ip : solution.front())
+            result.emplace_back(ip.X / 1000.0, ip.Y / 1000.0);
     }
-    if (!foundStart) {
-        // A is fully inside B — result is empty
-        return {};
-    }
-
-    // 3. Traverse A starting at 'start', and follow boundary, switch at intersections
-    bool insideB = false;
-    bool started = false;
-    size_t idx = 0;
-    while (idx < polyA.size()) {
-        QPointF curr = polyA[idx];
-        QPointF next = polyA[(idx + 1) % polyA.size()];
-        QPointF mid((curr.x() + next.x()) / 2.0, (curr.y() + next.y()) / 2.0);
-
-        if (!started && pointFuzzyEqual(curr, start)) {
-            started = true;
-        }
-
-        if (started) {
-            if (!pointInPolygon(mid, polyB)) {
-                result.push_back(curr);
-            } else {
-                // Entering B, skip until we find an edge outside again
-                while (pointInPolygon(mid, polyB) && idx < polyA.size()) {
-                    idx++;
-                    curr = polyA[idx % polyA.size()];
-                    next = polyA[(idx + 1) % polyA.size()];
-                    mid = QPointF((curr.x() + next.x()) / 2.0, (curr.y() + next.y()) / 2.0);
-                }
-                // Add the first outside point again
-                result.push_back(curr);
-            }
-        }
-
-        idx++;
-        if (started && pointFuzzyEqual(polyA[idx % polyA.size()], start)) break;
-    }
-
-    // 4. Close polygon if needed
-    if (!result.empty() && !qFuzzyCompare(result.front(), result.back())) {
-        result.push_back(result.front());
-    }
-
-    // 5. Remove duplicates
-    result.erase(std::unique(result.begin(), result.end(), [](const QPointF& a, const QPointF& b) {
-        return qFuzzyCompare(a.x(), b.x()) && qFuzzyCompare(a.y(), b.y());
-    }), result.end());
-
     return result;
 }
-
 
 
 

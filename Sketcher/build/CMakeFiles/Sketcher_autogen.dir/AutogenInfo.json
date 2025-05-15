@@ -354,6 +354,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/ExtrudeUtils.h",
+			"MU",
+			"Y633IG2ZBU/moc_ExtrudeUtils.cpp",
+			null
+		],
+		[
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/GLWidget.h",
 			"MU",
 			"Y633IG2ZBU/moc_GLWidget.cpp",
@@ -381,6 +387,12 @@
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/TransformDialogue.h",
 			"MU",
 			"Y633IG2ZBU/moc_TransformDialogue.cpp",
+			null
+		],
+		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/clipper.hpp",
+			"MU",
+			"Y633IG2ZBU/moc_clipper.cpp",
 			null
 		],
 		[
@@ -476,6 +488,11 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/ExtrudeUtils.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/GLWidget.cpp",
 			"MU",
 			null
@@ -497,6 +514,11 @@
 		],
 		[
 			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/src/clipper.cpp",
 			"MU",
 			null
 		],

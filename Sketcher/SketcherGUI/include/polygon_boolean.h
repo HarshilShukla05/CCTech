@@ -16,6 +16,8 @@ public:
 
     // Method to compute the subtraction of two polygons
     static std::vector<QPointF> subtractPolygons(const std::vector<QPointF>& poly1, const std::vector<QPointF>& poly2);
-};
 
+   
+};
+ bool pointInPolygon(const QPointF& point, const std::vector<QPointF>& polygon);
 #endif // POLYGON_BOOLEAN_H

@@ -147,6 +147,7 @@ C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/Y633IG
   C:/Qt/6.9.0/mingw_64/include/QtGui/QMouseEvent \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QSurfaceFormat \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QTransform \
+  C:/Qt/6.9.0/mingw_64/include/QtGui/QVector3D \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qbrush.h \

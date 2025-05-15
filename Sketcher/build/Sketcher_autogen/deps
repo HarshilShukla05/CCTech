@@ -154,6 +154,7 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QOpenGLFunctions \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QSurfaceFormat \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QTransform \
+	C:/Qt/6.9.0/mingw_64/include/QtGui/QVector3D \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QWheelEvent \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/qbitmap.h \
@@ -453,18 +454,22 @@ Sketcher_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
 	C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/CMakeLists.txt \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/ExtrudeUtils.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/GLWidget.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/ShapeInputDialog.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/SketchGLWidget.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/SketchWindow.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/TransformDialogue.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/clipper.hpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/mainwindow.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/polygon_boolean.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/ExtrudeUtils.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/GLWidget.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/ShapeInputDialog.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/SketchGLWidget.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/SketchWindow.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/clipper.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/main.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/polygon_boolean.cpp \

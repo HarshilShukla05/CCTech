@@ -151,8 +151,10 @@ C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/Y633IG
   C:/Qt/6.9.0/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

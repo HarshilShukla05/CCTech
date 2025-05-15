@@ -30,6 +30,8 @@ set(GUI_SRC
     SketcherGUI/src/SketchGLWidget.cpp
     SketcherGUI/src/SketchWindow.cpp
     SketcherGUI/src/polygon_boolean.cpp
+    SketcherGUI/src/ExtrudeUtils.cpp
+    SketcherGUI/src/clipper.cpp
 )
 
 set(GUI_HEADERS
@@ -40,6 +42,8 @@ set(GUI_HEADERS
     SketcherGUI/include/SketchGLWidget.h
     SketcherGUI/include/SketchWindow.h
     SketcherGUI/include/polygon_boolean.h
+    SketcherGUI/include/ExtrudeUtils.h
+    SketcherGUI/include/clipper.hpp
 )
 
 set(GUI_UI
