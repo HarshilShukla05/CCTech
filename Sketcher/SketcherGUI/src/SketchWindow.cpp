@@ -17,6 +17,7 @@ SketchWindow::SketchWindow(QWidget* parent)
     QPushButton* subtractBtn = new QPushButton("Subtraction");
     QPushButton* clearResultBtn = new QPushButton("Clear Result");
     QPushButton* extrudeBtn = new QPushButton("Extrude");
+    QPushButton* bezierBtn = new QPushButton("Bezier Mode");
 
     connect(finishShapeBtn, &QPushButton::clicked, this, &SketchWindow::onFinishShape);
     connect(unionBtn, &QPushButton::clicked, this, &SketchWindow::onUnion);
@@ -30,6 +31,7 @@ SketchWindow::SketchWindow(QWidget* parent)
             sketchGLWidget->extrudeSelectedRegion(depth);
         }
     });
+    connect(bezierBtn, &QPushButton::clicked, sketchGLWidget, &SketchGLWidget::toggleBezierMode);
 
     QHBoxLayout* buttons = new QHBoxLayout;
     buttons->addWidget(finishShapeBtn);
@@ -38,6 +40,7 @@ SketchWindow::SketchWindow(QWidget* parent)
     buttons->addWidget(subtractBtn);
     buttons->addWidget(clearResultBtn);
     buttons->addWidget(extrudeBtn);
+    buttons->addWidget(bezierBtn); // <-- Add this line to show the Bezier button
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(sketchGLWidget);
@@ -53,8 +56,15 @@ SketchWindow::SketchWindow(QWidget* parent)
 
 void SketchWindow::onFinishShape() { sketchGLWidget->finishCurrentShape(); }
 void SketchWindow::onUnion() { sketchGLWidget->applyUnion(); }
-void SketchWindow::onIntersection() { sketchGLWidget->applyIntersection(); }
+// void SketchWindow::onIntersection() { sketchGLWidget->applyIntersection(); }
 
+void SketchWindow::onIntersection() {
+    if (sketchGLWidget->isBezierModeActive()) {
+        sketchGLWidget->findBezierIntersections();
+    } else {
+        sketchGLWidget->applyIntersection();
+    }
+}
 
 void SketchWindow::onSubtraction() {
     QStringList options = { "A - B", "B - A" };

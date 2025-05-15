@@ -25,12 +25,14 @@ public:
     int getSelectedRegionIndex() const { return selectedRegionIndex; }
     std::vector<QPointF> getSelectedPolygon() const;
 
-    void setExtrudedData(const std::vector<QVector3D>& verts, const std::vector<unsigned int>& indices); // Updated signature
-
-    // Method to clear the result
+    void setExtrudedData(const std::vector<QVector3D>& verts, const std::vector<unsigned int>& indices); 
     void clearResult();
+    void extrudeSelectedRegion(float depth);
+    
+    void toggleBezierMode();
+    void findBezierIntersections();
 
-    void extrudeSelectedRegion(float depth); // Updated parameter name
+    bool isBezierModeActive() const;
 
 protected:
     void initializeGL() override;
@@ -45,6 +47,17 @@ private:
     };
 
     Geometry extrudedGeometry; // Store extruded geometry
+    
+    enum class DrawMode { Line, Bezier } drawMode;
+
+    struct CurveSegment {
+        enum Type { Line, CubicBezier } type;
+        QPointF p0, p1, p2, p3;
+    };
+
+    std::vector<std::vector<CurveSegment>> shapeCurves;
+    std::vector<QPointF> bezierControlPoints;
+    std::vector<QPointF> bezierIntersections;
 
     void drawGeometry();
     void drawExtrudedGeometry();
@@ -62,6 +75,11 @@ private:
     std::vector<QVector3D> extrudedVertices; // Added member variable
     std::vector<unsigned int> extrudedIndices; // Added member variable
     std::vector<std::array<int, 3>> extrudedFaces; // Added member variable
+
+    bool bezierMode = false;
+    void drawBezierCurve(const CurveSegment& bezier, QPainter& painter);
+    std::vector<QPointF> flattenBezier(const CurveSegment& bez, int segments);
+    void intersectBezierRecursive(const CurveSegment& a, const CurveSegment& b, std::vector<QPointF>& intersections, int depth = 0);
 };
 
 // bool pointInPolygon(const QPointF& point, const std::vector<QPointF>& polygon);
