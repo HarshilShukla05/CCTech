@@ -429,4 +429,9 @@ bool SketchGLWidget::isBezierModeActive() const {
     return bezierMode;
 }
 
-
+void SketchGLWidget::setResultRegion(const std::vector<QPointF>& pts) {
+    resultRegions.clear();
+    resultRegions.push_back(pts);
+    selectedRegionIndex = 0;
+    update();
+}

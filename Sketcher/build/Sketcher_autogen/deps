@@ -1,4 +1,52 @@
 Sketcher_autogen/timestamp: \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeCInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeCXXInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeCommonLanguageInclude.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeGenericSystem.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeInitializeConfigs.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeRCInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CheckCXXCompilerFlag.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CheckCXXSourceCompiles.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CheckIncludeFile.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Compiler/GNU-C.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Compiler/GNU.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/FindOpenGL.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/FindVulkan.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/GNUInstallDirs.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CMakeCLinkerInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CheckCompilerFlag.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CheckFlagCommonConfig.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Linker/GNU.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-C.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-CXX.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-Initialize.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows-windres.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/Windows.cmake \
+	C:/Program\ Files/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QList \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
@@ -460,6 +508,7 @@ Sketcher_autogen/timestamp: \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/SketchGLWidget.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/SketchWindow.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/TransformDialogue.h \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/TriangleIntersection.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/clipper.hpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/mainwindow.h \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/polygon_boolean.h \
@@ -469,6 +518,7 @@ Sketcher_autogen/timestamp: \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/SketchGLWidget.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/SketchWindow.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/TransformDialogue.cpp \
+	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/TriangleIntersection.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/clipper.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/main.cpp \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.cpp \
@@ -708,53 +758,5 @@ Sketcher_autogen/timestamp: \
 	C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
 	C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h \
 	C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeCInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CheckCSourceCompiles.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/CheckLibraryExists.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/FindOpenGL.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/FindThreads.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/FindVulkan.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-C.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake \
-	C:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake \
 	C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/src/mainwindow.ui \
-	C:/msys64/mingw64/bin/cmake.exe
+	C:/Program\ Files/CMake/bin/cmake.exe

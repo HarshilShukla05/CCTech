@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -S"C:\Users\Admin\Desktop\New folder\CCTech\Sketcher" -B"C:\Users\Admin\Desktop\New folder\CCTech\Sketcher\build"
+  command = "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Admin\Desktop\New folder\CCTech\Sketcher" -B"C:\Users\Admin\Desktop\New folder\CCTech\Sketcher\build"
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning additional files.
 
 rule CLEAN_ADDITIONAL
-  command = C:\msys64\mingw64\bin\cmake.exe -DCONFIG=$CONFIG -P CMakeFiles\clean_additional.cmake
+  command = "C:\Program Files\CMake\bin\cmake.exe" -DCONFIG=$CONFIG -P CMakeFiles\clean_additional.cmake
   description = Cleaning additional files...
 
 

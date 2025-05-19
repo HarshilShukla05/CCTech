@@ -16,6 +16,8 @@ private slots:
     void onUnion();
     void onIntersection();
     void onSubtraction();
+    void onTriangleIntersection();
+
 
 private:
     SketchGLWidget* sketchGLWidget; // Corrected variable name

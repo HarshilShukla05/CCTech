@@ -34,12 +34,16 @@ public:
 
     bool isBezierModeActive() const;
 
+    void setResultRegion(const std::vector<QPointF>& pts);
+
 protected:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
+    
+
 
 private:
     struct Geometry {

@@ -22,6 +22,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
     setCentralWidget(ui->centralwidget);
     glWidget = new GLWidget(this);
     ui->openGLContainer->setLayout(new QVBoxLayout);
@@ -184,6 +185,7 @@ void MainWindow::on_saveFileButton_clicked() {
         converter.save(vertices, filePath.toStdString());
     }
 }
+
 
 void MainWindow::applyTransformations(const std::vector<std::vector<double>> &verts) {
     glWidget->setShapeVertices(verts);

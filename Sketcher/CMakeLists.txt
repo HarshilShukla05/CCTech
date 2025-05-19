@@ -32,6 +32,7 @@ set(GUI_SRC
     SketcherGUI/src/polygon_boolean.cpp
     SketcherGUI/src/ExtrudeUtils.cpp
     SketcherGUI/src/clipper.cpp
+    SketcherGUI/src/TriangleIntersection.cpp
 )
 
 set(GUI_HEADERS
@@ -44,6 +45,7 @@ set(GUI_HEADERS
     SketcherGUI/include/polygon_boolean.h
     SketcherGUI/include/ExtrudeUtils.h
     SketcherGUI/include/clipper.hpp
+    SketcherGUI/include/TriangleIntersection.h
 )
 
 set(GUI_UI
