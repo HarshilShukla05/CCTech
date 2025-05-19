@@ -35,6 +35,9 @@ public:
     bool isBezierModeActive() const;
 
     void setResultRegion(const std::vector<QPointF>& pts);
+    void setStlMeshes(const std::vector<std::vector<double>>& vertsA, const std::vector<std::array<int,3>>& facesA,
+                      const std::vector<std::vector<double>>& vertsB, const std::vector<std::array<int,3>>& facesB);
+    void setIntersectingTriangles(const std::vector<std::vector<double>>& intersectionTriangles);
 
 protected:
     void initializeGL() override;
@@ -81,10 +84,19 @@ private:
     std::vector<unsigned int> extrudedIndices; // Added member variable
     std::vector<std::array<int, 3>> extrudedFaces; // Added member variable
 
+    // STL mesh data for intersection visualization
+    std::vector<std::vector<double>> stlVertsA, stlVertsB;
+    std::vector<std::array<int,3>> stlFacesA, stlFacesB;
+    std::vector<std::vector<double>> intersectingTriangles; // Each is 3x3 double
+    bool showStlIntersection = false;
+
     bool bezierMode = false;
     void drawBezierCurve(const CurveSegment& bezier, QPainter& painter);
     std::vector<QPointF> flattenBezier(const CurveSegment& bez, int segments);
     void intersectBezierRecursive(const CurveSegment& a, const CurveSegment& b, std::vector<QPointF>& intersections, int depth = 0);
+
+    void drawStlMeshes();
+    void drawIntersectingTriangles();
 
     int hoveredIntersectionIndex = -1;
 

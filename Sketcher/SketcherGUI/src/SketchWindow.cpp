@@ -6,6 +6,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QInputDialog>
+#include <QFileDialog>
+#include <QMessageBox>
+#include "FileConverter.h"
 #include "TriangleIntersection.h"
 
 SketchWindow::SketchWindow(QWidget* parent)
@@ -20,6 +23,7 @@ SketchWindow::SketchWindow(QWidget* parent)
     QPushButton* extrudeBtn = new QPushButton("Extrude");
     QPushButton* bezierBtn = new QPushButton("Bezier Mode");
     QPushButton* triIntersectBtn = new QPushButton("Triangle-Triangle Intersection");
+    QPushButton* stlIntersectBtn = new QPushButton("STL Intersection");
 
     connect(finishShapeBtn, &QPushButton::clicked, this, &SketchWindow::onFinishShape);
     connect(unionBtn, &QPushButton::clicked, this, &SketchWindow::onUnion);
@@ -35,6 +39,7 @@ SketchWindow::SketchWindow(QWidget* parent)
     });
     connect(bezierBtn, &QPushButton::clicked, sketchGLWidget, &SketchGLWidget::toggleBezierMode);
     connect(triIntersectBtn, &QPushButton::clicked, this, &SketchWindow::onTriangleIntersection);
+    connect(stlIntersectBtn, &QPushButton::clicked, this, &SketchWindow::onStlIntersection);
 
     QHBoxLayout* buttons = new QHBoxLayout;
     buttons->addWidget(finishShapeBtn);
@@ -45,6 +50,7 @@ SketchWindow::SketchWindow(QWidget* parent)
     buttons->addWidget(extrudeBtn);
     buttons->addWidget(bezierBtn); 
     buttons->addWidget(triIntersectBtn);
+    buttons->addWidget(stlIntersectBtn);
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(sketchGLWidget);
@@ -109,5 +115,81 @@ void SketchWindow::onTriangleIntersection() {
         sketchGLWidget->setResultRegion(proj); // New method to draw intersection
     } else {
         qDebug() << "No intersection.";
+    }
+}
+
+void SketchWindow::onStlIntersection() {
+    loadStlFilesAndIntersect();
+}
+
+void SketchWindow::loadStlFilesAndIntersect() {
+    stlFileA = QFileDialog::getOpenFileName(this, "Select First STL File", "", "STL Files (*.stl)");
+    if (stlFileA.isEmpty()) return;
+    stlFileB = QFileDialog::getOpenFileName(this, "Select Second STL File", "", "STL Files (*.stl)");
+    if (stlFileB.isEmpty()) return;
+
+    FileConverter converter;
+    auto meshA = converter.load(stlFileA.toStdString());
+    auto meshB = converter.load(stlFileB.toStdString());
+
+    qDebug() << "STL A vertices:" << meshA.first.size() << "faces:" << meshA.second.size();
+    qDebug() << "STL B vertices:" << meshB.first.size() << "faces:" << meshB.second.size();
+
+    if (meshA.first.empty() || meshA.second.empty()) {
+        QMessageBox::warning(this, "Error", "Failed to load first STL file or it contains no faces.");
+        sketchGLWidget->setStlMeshes({}, {}, {}, {});
+        sketchGLWidget->setIntersectingTriangles({});
+        sketchGLWidget->update();
+        return;
+    }
+    if (meshB.first.empty() || meshB.second.empty()) {
+        QMessageBox::warning(this, "Error", "Failed to load second STL file or it contains no faces.");
+        sketchGLWidget->setStlMeshes({}, {}, {}, {});
+        sketchGLWidget->setIntersectingTriangles({});
+        sketchGLWidget->update();
+        return;
+    }
+
+    // Warn if mesh is large
+    if (meshA.second.size() * meshB.second.size() > 500000) {
+        QMessageBox::information(this, "Warning", "Intersection of large STL files may freeze the UI. Please use smaller files for demo.");
+    }
+
+    std::vector<std::vector<double>> intersectionTriangles;
+    for (const auto& fa : meshA.second) {
+        if (fa[0] >= meshA.first.size() || fa[1] >= meshA.first.size() || fa[2] >= meshA.first.size())
+            continue;
+        Triangle triA;
+        triA.v0 = QVector3D(meshA.first[fa[0]][0], meshA.first[fa[0]][1], meshA.first[fa[0]][2]);
+        triA.v1 = QVector3D(meshA.first[fa[1]][0], meshA.first[fa[1]][1], meshA.first[fa[1]][2]);
+        triA.v2 = QVector3D(meshA.first[fa[2]][0], meshA.first[fa[2]][1], meshA.first[fa[2]][2]);
+        for (const auto& fb : meshB.second) {
+            if (fb[0] >= meshB.first.size() || fb[1] >= meshB.first.size() || fb[2] >= meshB.first.size())
+                continue;
+            Triangle triB;
+            triB.v0 = QVector3D(meshB.first[fb[0]][0], meshB.first[fb[0]][1], meshB.first[fb[0]][2]);
+            triB.v1 = QVector3D(meshB.first[fb[1]][0], meshB.first[fb[1]][1], meshB.first[fb[1]][2]);
+            triB.v2 = QVector3D(meshB.first[fb[2]][0], meshB.first[fb[2]][1], meshB.first[fb[2]][2]);
+            std::vector<QVector3D> intersections;
+            if (triangleIntersectsTriangle(triA, triB, intersections) && !intersections.empty()) {
+                for (size_t i = 0; i + 2 < intersections.size(); i += 3) {
+                    std::vector<double> triPts;
+                    for (int j = 0; j < 3; ++j) {
+                        triPts.push_back(intersections[i+j].x());
+                        triPts.push_back(intersections[i+j].y());
+                        triPts.push_back(intersections[i+j].z());
+                    }
+                    intersectionTriangles.push_back(triPts);
+                }
+            }
+        }
+    }
+
+    sketchGLWidget->setStlMeshes(meshA.first, meshA.second, meshB.first, meshB.second);
+    sketchGLWidget->setIntersectingTriangles(intersectionTriangles);
+    sketchGLWidget->update();
+
+    if (intersectionTriangles.empty()) {
+        QMessageBox::information(this, "STL Intersection", "No intersections found between the selected STL files.");
     }
 }

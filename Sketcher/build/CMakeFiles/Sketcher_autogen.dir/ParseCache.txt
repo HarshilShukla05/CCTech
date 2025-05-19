@@ -2190,6 +2190,7 @@ C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/mainwindow
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.9.0/mingw_64/include/QtWidgets/qwidget.h
+ mdp:C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/SketchWindow.h
  mdp:C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/SketcherGUI/include/mainwindow.h
  mdp:C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/build/Sketcher_autogen/moc_predefs.h
  mdp:C:/Users/Admin/Desktop/New folder/CCTech/Sketcher/geometry/include/Bezier.h

@@ -156,6 +156,12 @@ void SketchGLWidget::paintGL() {
 
         glDisable(GL_DEPTH_TEST);
     }
+
+    if (showStlIntersection) {
+        drawStlMeshes();
+        drawIntersectingTriangles();
+        return;
+    }
 }
 
 
@@ -434,4 +440,56 @@ void SketchGLWidget::setResultRegion(const std::vector<QPointF>& pts) {
     resultRegions.push_back(pts);
     selectedRegionIndex = 0;
     update();
+}
+
+void SketchGLWidget::setStlMeshes(const std::vector<std::vector<double>>& vertsA, const std::vector<std::array<int,3>>& facesA,
+                                  const std::vector<std::vector<double>>& vertsB, const std::vector<std::array<int,3>>& facesB) {
+    stlVertsA = vertsA;
+    stlFacesA = facesA;
+    stlVertsB = vertsB;
+    stlFacesB = facesB;
+    showStlIntersection = true;
+}
+
+void SketchGLWidget::setIntersectingTriangles(const std::vector<std::vector<double>>& intersectionTriangles) {
+    this->intersectingTriangles = intersectionTriangles;
+    showStlIntersection = true;
+}
+
+void SketchGLWidget::drawStlMeshes() {
+    // Draw mesh A in blue
+    glColor3f(0.2f, 0.4f, 1.0f);
+    glBegin(GL_TRIANGLES);
+    for (const auto& face : stlFacesA) {
+        for (int i = 0; i < 3; ++i) {
+            const auto& v = stlVertsA[face[i]];
+            glVertex3d(v[0], v[1], v[2]);
+        }
+    }
+    glEnd();
+    // Draw mesh B in green
+    glColor3f(0.2f, 1.0f, 0.2f);
+    glBegin(GL_TRIANGLES);
+    for (const auto& face : stlFacesB) {
+        for (int i = 0; i < 3; ++i) {
+            const auto& v = stlVertsB[face[i]];
+            glVertex3d(v[0], v[1], v[2]);
+        }
+    }
+    glEnd();
+}
+
+void SketchGLWidget::drawIntersectingTriangles() {
+    glColor3f(1.0f, 0.0f, 0.0f); // Red for intersection
+    glLineWidth(3.0f);
+    for (const auto& tri : intersectingTriangles) {
+        if (tri.size() == 9) {
+            glBegin(GL_LINE_LOOP);
+            for (int i = 0; i < 3; ++i) {
+                glVertex3d(tri[i*3], tri[i*3+1], tri[i*3+2]);
+            }
+            glEnd();
+        }
+    }
+    glLineWidth(1.0f);
 }

@@ -159,6 +159,7 @@ C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/build/Sketcher_autogen/Y633IG
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
+  C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/SketcherGUI/include/SketchWindow.h \
   C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/Bezier.h \
   C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/plot_utils.h \
   C:/Users/Admin/Desktop/New\ folder/CCTech/Sketcher/geometry/include/shapes.h \

@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->shapeComboBox, &QComboBox::currentTextChanged,
         this, &MainWindow::onShapeSelected);
+
+    sketchWindow = nullptr; // Initialize the pointer
 }
 
 MainWindow::~MainWindow() {
@@ -194,6 +196,23 @@ void MainWindow::applyTransformations(const std::vector<std::vector<double>> &ve
 
 
 void MainWindow::on_openSketchWindowButton_clicked() {
-    SketchWindow* window = new SketchWindow(this);
-    window->show();
+    if (!sketchWindow) {
+        sketchWindow = new SketchWindow(this);
+        // Optionally connect signals/slots if needed
+    }
+    sketchWindow->show();
+    sketchWindow->raise();
+    sketchWindow->activateWindow();
+}
+
+void MainWindow::on_stlIntersection_triggered()
+{
+    if (sketchWindow) {
+        sketchWindow->onStlIntersection();
+    } else {
+        // Optionally, open the SketchWindow if not already open
+        on_openSketchWindowButton_clicked();
+        if (sketchWindow)
+            sketchWindow->onStlIntersection();
+    }
 }

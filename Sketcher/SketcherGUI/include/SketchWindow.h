@@ -10,6 +10,7 @@ class SketchWindow : public QMainWindow {
 
 public:
     explicit SketchWindow(QWidget* parent = nullptr);
+    void onStlIntersection(); // Move this line here from private section
 
 private slots:
     void onFinishShape();
@@ -18,9 +19,10 @@ private slots:
     void onSubtraction();
     void onTriangleIntersection();
 
-
 private:
     SketchGLWidget* sketchGLWidget; // Corrected variable name
+    QString stlFileA, stlFileB; // Store STL file paths
+    void loadStlFilesAndIntersect(); // Helper
 };
 
 #endif // SKETCHWINDOW_H
